@@ -21,18 +21,18 @@ List<CarouselItemModel> carouselItems = List.generate(
       mainAxisSize: MainAxisSize.min,
       children: [
         const Text(
-          "PRODUCT DESIGNER",
+          "TRYSELL SOLUTIONS",
           style: TextStyle(
             color: kPrimaryColor,
             fontWeight: FontWeight.w900,
-            fontSize: 16.0,
+            fontSize: 20.0,
           ),
         ),
         const SizedBox(
           height: 18.0,
         ),
         const Text(
-          "MICHELE\nHARRINGTON",
+          "SECURE IT SOLUTIONS\n ",
           style: TextStyle(
             color: Colors.white,
             fontSize: 40.0,

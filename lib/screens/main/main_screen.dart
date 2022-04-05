@@ -23,9 +23,18 @@ class MainScreen extends StatelessWidget {
               GetX<MenuController>(
                 builder: (_) => _controller.selectedIndex == 0
                     ? Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            colorFilter: ColorFilter.mode(
+                                Colors.black.withOpacity(0.7),
+                                BlendMode.darken),
+                            image: AssetImage(
+                                'assets/images/software_developer.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height,
-                        color: Colors.red,
                         child: Carousel())
                     : _controller.selectedIndex == 1
                         ? Container(
