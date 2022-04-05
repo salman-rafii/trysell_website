@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:trysell_website/constants.dart';
@@ -5,7 +6,7 @@ import 'package:trysell_website/models/carousal_items.dart';
 import 'package:trysell_website/screen_helper.dart';
 
 class Carousel extends StatelessWidget {
-  // final CarouselController carouselController = CarouselController();
+  final CarouselController carouselController = CarouselController();
   @override
   Widget build(BuildContext context) {
     double carouselContainerHeight = MediaQuery.of(context).size.height *
@@ -18,8 +19,15 @@ class Carousel extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.center,
-            child: Column(
-              children: List.generate(
+            child: CarouselSlider(
+              carouselController: carouselController,
+              options: CarouselOptions(
+                // autoPlay: true,
+                viewportFraction: 1,
+                scrollPhysics: NeverScrollableScrollPhysics(),
+                height: carouselContainerHeight,
+              ),
+              items: List.generate(
                 carouselItems.length,
                 (index) => Builder(
                   builder: (BuildContext context) {
@@ -50,7 +58,7 @@ class Carousel extends StatelessWidget {
                 ),
               ).toList(),
             ),
-          ),
+          )
         ],
       ),
     );
