@@ -3,12 +3,22 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/state_manager.dart';
 
 class MenuController extends GetxController {
-  RxInt _selectedIndex = 0.obs;
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final RxInt _selectedIndex = 0.obs;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   int get selectedIndex => _selectedIndex.value;
-  List<String> get menuItems =>
-      ["Cases", "Services", "About Us", "Careers", "Blog", "Contact"];
+  List<String> get menuItems => [
+        "Home",
+        "Services",
+        "Contact Us",
+        "Blog",
+      ];
+  List<Widget> myWidgets = [
+    Text("one"),
+    Text("two"),
+    Text("Three"),
+    Text("Four")
+  ];
   GlobalKey<ScaffoldState> get scaffoldkey => _scaffoldKey;
 
   void openOrCloseDrawer() {

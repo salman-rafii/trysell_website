@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trysell_website/controllers/MenuController.dart';
+import 'package:trysell_website/screens/home/components/carousal.dart';
 import 'package:trysell_website/screens/home/home_screen.dart';
 
 import '../../constants.dart';
@@ -15,16 +16,33 @@ class MainScreen extends StatelessWidget {
       key: _controller.scaffoldkey,
       drawer: SideMenu(),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Header(),
-            Container(
-              padding: EdgeInsets.all(kDefaultPadding),
-              constraints: BoxConstraints(maxWidth: kMaxWidth),
-              child: SafeArea(child: HomeScreen()),
-            ),
-          ],
-        ),
+        child: Builder(builder: (context) {
+          return Column(
+            children: [
+              Header(),
+              GetX<MenuController>(
+                builder: (_) => _controller.selectedIndex == 0
+                    ? Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        color: Colors.red,
+                        child: Carousel())
+                    : _controller.selectedIndex == 1
+                        ? Container(
+                            child: Text("View 2"),
+                          )
+                        : _controller.selectedIndex == 2
+                            ? Container(child: Text("View 3"))
+                            : Container(
+                                padding: EdgeInsets.all(kDefaultPadding),
+                                constraints:
+                                    BoxConstraints(maxWidth: kMaxWidth),
+                                child: SafeArea(child: HomeScreen()),
+                              ),
+              )
+            ],
+          );
+        }),
       ),
     );
   }

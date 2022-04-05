@@ -23,8 +23,8 @@ class BlogPostCard extends StatelessWidget {
             child: Image.asset(blog.image!),
           ),
           Container(
-            padding: EdgeInsets.all(kDefaultPadding),
-            decoration: BoxDecoration(
+            padding: const EdgeInsets.all(kDefaultPadding),
+            decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(10),
