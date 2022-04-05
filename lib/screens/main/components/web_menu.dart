@@ -63,8 +63,8 @@ class _WebMenuItemState extends State<WebMenuItem> {
       },
       child: AnimatedContainer(
         duration: kDefaultDuration,
-        margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-        padding: EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
+        margin: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+        padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(color: _borderColor(), width: 3),
@@ -73,7 +73,7 @@ class _WebMenuItemState extends State<WebMenuItem> {
         child: Text(
           widget.text,
           style: TextStyle(
-            color: Colors.white,
+            color: kDarkBlackColor,
             fontWeight: widget.isActive ? FontWeight.w600 : FontWeight.normal,
           ),
         ),

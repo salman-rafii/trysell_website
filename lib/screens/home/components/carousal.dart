@@ -24,7 +24,7 @@ class Carousel extends StatelessWidget {
               options: CarouselOptions(
                 // autoPlay: true,
                 viewportFraction: 1,
-                scrollPhysics: NeverScrollableScrollPhysics(),
+                scrollPhysics: const NeverScrollableScrollPhysics(),
                 height: carouselContainerHeight,
               ),
               items: List.generate(

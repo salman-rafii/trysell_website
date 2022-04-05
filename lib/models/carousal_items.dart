@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:trysell_website/constants.dart';
 
 class CarouselItemModel {
@@ -20,44 +19,38 @@ List<CarouselItemModel> carouselItems = List.generate(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Text(
-          "TRYSELL SOLUTIONS",
-          style: TextStyle(
-            color: kPrimaryColor,
-            fontWeight: FontWeight.w900,
-            fontSize: 20.0,
-          ),
-        ),
         const SizedBox(
           height: 18.0,
         ),
-        const Text(
-          "SECURE IT SOLUTIONS\n ",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 40.0,
-            fontWeight: FontWeight.w900,
-            height: 1.3,
-          ),
-        ),
-        const SizedBox(
-          height: 10.0,
-        ),
-        const Text(
-          "Full-stack developer, based in Barcelona",
-          style: TextStyle(
-            color: kCaptionColor,
-            fontSize: 15.0,
-            height: 1.0,
-          ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              "TRYSELL SOLUTIONS",
+              style: TextStyle(
+                color: kPrimaryColor,
+                fontWeight: FontWeight.w900,
+                fontSize: 30.0,
+              ),
+            ),
+            Text(
+              "SECURE IT SOLUTIONS FOR A MORE SECURE ENVIRONMENT",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 40.0,
+                fontWeight: FontWeight.w900,
+                height: 1.3,
+              ),
+            ),
+          ],
         ),
         const SizedBox(
           height: 10.0,
         ),
         Wrap(
           children: [
-            Text(
-              "Need a full custom website?",
+            const Text(
+              "Need a service of your need?",
               style: TextStyle(
                 color: kCaptionColor,
                 fontSize: 15.0,
@@ -110,8 +103,10 @@ List<CarouselItemModel> carouselItems = List.generate(
       ],
     ),
     image: Image.asset(
-      "assets/images/0.png",
+      "assets/images/home_banner.png",
       fit: BoxFit.contain,
+      height: 450,
+      width: 450,
     ),
   ),
 );

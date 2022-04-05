@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trysell_website/controllers/MenuController.dart';
 import 'package:trysell_website/screens/home/components/carousal.dart';
+import 'package:trysell_website/screens/home/components/home_screen_view.dart';
 import 'package:trysell_website/screens/home/home_screen.dart';
 
 import '../../constants.dart';
@@ -13,6 +14,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       key: _controller.scaffoldkey,
       drawer: SideMenu(),
       body: SingleChildScrollView(
@@ -22,20 +24,7 @@ class MainScreen extends StatelessWidget {
               Header(),
               GetX<MenuController>(
                 builder: (_) => _controller.selectedIndex == 0
-                    ? Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            colorFilter: ColorFilter.mode(
-                                Colors.black.withOpacity(0.7),
-                                BlendMode.darken),
-                            image: AssetImage(
-                                'assets/images/software_developer.jpg'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height,
-                        child: Carousel())
+                    ? const HomeScreenView()
                     : _controller.selectedIndex == 1
                         ? Container(
                             child: Text("View 2"),

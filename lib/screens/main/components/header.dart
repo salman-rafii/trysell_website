@@ -24,7 +24,7 @@ class _HeaderState extends State<Header> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: kDarkBlackColor,
+      color: Colors.white,
       child: SafeArea(
         child: Column(
           children: [
@@ -58,196 +58,14 @@ class _HeaderState extends State<Header> {
                   ),
                   const SizedBox(height: kDefaultPadding * 2),
                   GetX<MenuController>(
-                      builder: (_) => _controller.selectedIndex == 0
-                          ? Column(
-                              children: [
-                                const Text(
-                                  "Welcome to Trysell Solutions",
-                                  style: TextStyle(
-                                    fontSize: 32,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                const Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: kDefaultPadding),
-                                  child: Text(
-                                    "Stay updated with the newest design and development stories, case studies, \nand insights shared by DesignDK Team.",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'Raleway',
-                                      height: 1.5,
-                                    ),
-                                  ),
-                                ),
-                                FittedBox(
-                                  child: TextButton(
-                                    onPressed: () {},
-                                    child: Row(
-                                      children: const [
-                                        Text(
-                                          "Learn More",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        SizedBox(width: kDefaultPadding / 2),
-                                        Icon(
-                                          Icons.arrow_forward,
-                                          color: Colors.white,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )
-                          : _controller.selectedIndex == 1
-                              ? Column(
-                                  children: [
-                                    const Text(
-                                      "Welcome to  Our Services",
-                                      style: TextStyle(
-                                        fontSize: 32,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          vertical: kDefaultPadding),
-                                      child: Text(
-                                        "Stay updated with the newest design and development stories, case studies, \nand insights shared by DesignDK Team.",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontFamily: 'Raleway',
-                                          height: 1.5,
-                                        ),
-                                      ),
-                                    ),
-                                    FittedBox(
-                                      child: TextButton(
-                                        onPressed: () {},
-                                        child: Row(
-                                          children: const [
-                                            Text(
-                                              "Learn More",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                            SizedBox(
-                                                width: kDefaultPadding / 2),
-                                            Icon(
-                                              Icons.arrow_forward,
-                                              color: Colors.white,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              : _controller.selectedIndex == 2
-                                  ? Column(
-                                      children: [
-                                        const Text(
-                                          "Contact Us",
-                                          style: TextStyle(
-                                            fontSize: 32,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        const Padding(
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: kDefaultPadding),
-                                          child: Text(
-                                            "Stay updated with the newest design and development stories, case studies, \nand insights shared by DesignDK Team.",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontFamily: 'Raleway',
-                                              height: 1.5,
-                                            ),
-                                          ),
-                                        ),
-                                        FittedBox(
-                                          child: TextButton(
-                                            onPressed: () {},
-                                            child: Row(
-                                              children: const [
-                                                Text(
-                                                  "Learn More",
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                    width: kDefaultPadding / 2),
-                                                Icon(
-                                                  Icons.arrow_forward,
-                                                  color: Colors.white,
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  : Column(
-                                      children: [
-                                        const Text(
-                                          "Welcome to Our Blog",
-                                          style: TextStyle(
-                                            fontSize: 32,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        const Padding(
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: kDefaultPadding),
-                                          child: Text(
-                                            "Stay updated with the newest design and development stories, case studies, \nand insights shared by DesignDK Team.",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontFamily: 'Raleway',
-                                              height: 1.5,
-                                            ),
-                                          ),
-                                        ),
-                                        FittedBox(
-                                          child: TextButton(
-                                            onPressed: () {},
-                                            child: Row(
-                                              children: const [
-                                                Text(
-                                                  "Learn More",
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                    width: kDefaultPadding / 2),
-                                                Icon(
-                                                  Icons.arrow_forward,
-                                                  color: Colors.white,
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    )),
+                    builder: (_) => _controller.selectedIndex == 0
+                        ? welcomeToView(title: "Welcome to Trysell Solutions")
+                        : _controller.selectedIndex == 1
+                            ? welcomeToView(title: "Welcome to Our Services")
+                            : _controller.selectedIndex == 2
+                                ? welcomeToView(title: "Contact Us")
+                                : welcomeToView(title: "Welcome to Our Blog"),
+                  ),
                   if (Responsive.isDesktop(context))
                     const SizedBox(height: kDefaultPadding),
                 ],
@@ -256,6 +74,54 @@ class _HeaderState extends State<Header> {
           ],
         ),
       ),
+    );
+  }
+
+  Column welcomeToView({title}) {
+    return Column(
+      children: [
+        Text(
+          "$title",
+          style: const TextStyle(
+            fontSize: 32,
+            color: kDarkBlackColor,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: kDefaultPadding),
+          child: Text(
+            "Stay updated with the newest design and development stories, case studies, \nand insights shared by DesignDK Team.",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: kDarkBlackColor,
+              fontFamily: 'Raleway',
+              height: 1.5,
+            ),
+          ),
+        ),
+        FittedBox(
+          child: TextButton(
+            onPressed: () {},
+            child: Row(
+              children: const [
+                Text(
+                  "Learn More",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: kDarkBlackColor,
+                  ),
+                ),
+                SizedBox(width: kDefaultPadding / 2),
+                Icon(
+                  Icons.arrow_forward,
+                  color: kDarkBlackColor,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
