@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trysell_website/constants.dart';
+import 'package:trysell_website/widgets/CustomText.dart';
 
 class CarouselItemModel {
   final Widget? text;
@@ -25,22 +26,17 @@ List<CarouselItemModel> carouselItemsServices = List.generate(
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            Text(
-              "TRYSELL SOLUTIONS",
-              style: TextStyle(
-                color: kPrimaryColor,
-                fontWeight: FontWeight.w900,
-                fontSize: 30.0,
-              ),
+            CustomText(
+              text: "TRYSELL SOLUTIONS",
+              color: kPrimaryColor,
+              fontWeight: FontWeight.w900,
+              fontSize: 30.0,
             ),
-            Text(
-              "SECURE IT SOLUTIONS FOR A MORE SECURE ENVIRONMENT",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 40.0,
-                fontWeight: FontWeight.w900,
-                height: 1.3,
-              ),
+            CustomText(
+              text: "SECURE IT SOLUTIONS FOR A MORE SECURE ENVIRONMENT",
+              color: Colors.white,
+              fontSize: 40.0,
+              fontWeight: FontWeight.w900,
             ),
           ],
         ),
@@ -49,25 +45,19 @@ List<CarouselItemModel> carouselItemsServices = List.generate(
         ),
         Wrap(
           children: [
-            const Text(
-              "Need a service of your need?",
-              style: TextStyle(
-                color: kCaptionColor,
-                fontSize: 15.0,
-                height: 1.5,
-              ),
+            const CustomText(
+              text: "Need a service of your need?",
+              color: kCaptionColor,
+              fontSize: 15.0,
             ),
             GestureDetector(
               onTap: () {},
               child: const MouseRegion(
                 cursor: SystemMouseCursors.click,
-                child: Text(
-                  " Got a project? Let's talk.",
-                  style: TextStyle(
-                    height: 1.5,
-                    color: Colors.white,
-                    fontSize: 15.0,
-                  ),
+                child: CustomText(
+                  text: " Got a project? Let's talk.",
+                  color: Colors.white,
+                  fontSize: 15.0,
                 ),
               ),
             )
@@ -89,13 +79,11 @@ List<CarouselItemModel> carouselItemsServices = List.generate(
             ),
             child: TextButton(
               onPressed: () {},
-              child: const Text(
-                "GET STARTED",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: const CustomText(
+                text: "GET STARTED",
+                color: Colors.white,
+                fontSize: 13.0,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),

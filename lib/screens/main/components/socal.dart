@@ -5,35 +5,59 @@ import 'package:trysell_website/widgets/CustomText.dart';
 import '../../../constants.dart';
 import '../../../responsive.dart';
 
-class Socal extends StatelessWidget {
+class Socal extends StatefulWidget {
   const Socal({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<Socal> createState() => _SocalState();
+}
+
+class _SocalState extends State<Socal> {
+  bool _isHover = false;
+  @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         if (!Responsive.isMobile(context))
-          SvgPicture.asset("assets/icons/behance-alt.svg"),
+          SvgPicture.asset(
+            "assets/icons/behance-alt.svg",
+            color: kDarkBlackColor,
+          ),
         if (!Responsive.isMobile(context))
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
-            child: SvgPicture.asset("assets/icons/feather_dribbble.svg"),
+            child: SvgPicture.asset(
+              "assets/icons/feather_dribbble.svg",
+              color: kDarkBlackColor,
+            ),
           ),
         if (!Responsive.isMobile(context))
-          SvgPicture.asset("assets/icons/feather_twitter.svg"),
+          SvgPicture.asset(
+            "assets/icons/feather_twitter.svg",
+            color: kDarkBlackColor,
+          ),
         const SizedBox(width: kDefaultPadding),
         Row(
           children: [
-            GestureDetector(
+            InkWell(
               onTap: () {},
-              child: const CustomText(
-                text: "Login",
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                color: kDarkBlackColor,
+              onHover: (value) {
+                setState(() {
+                  _isHover = value;
+                });
+                print(_isHover);
+              },
+              child: Container(
+                padding: EdgeInsets.all(4),
+                child: CustomText(
+                  text: "Login",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: _isHover == true ? Colors.blue : kDarkBlackColor,
+                ),
               ),
             ),
             const SizedBox(width: 10),
