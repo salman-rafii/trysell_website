@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:trysell_website/widgets/CustomText.dart';
 
 import '../../../constants.dart';
 import '../../../responsive.dart';
@@ -23,17 +24,38 @@ class Socal extends StatelessWidget {
           ),
         if (!Responsive.isMobile(context))
           SvgPicture.asset("assets/icons/feather_twitter.svg"),
-        SizedBox(width: kDefaultPadding),
-        ElevatedButton(
-          onPressed: () {},
-          style: TextButton.styleFrom(
-            padding: EdgeInsets.symmetric(
-              horizontal: kDefaultPadding * 1.5,
-              vertical:
-                  kDefaultPadding / (Responsive.isDesktop(context) ? 1 : 2),
+        const SizedBox(width: kDefaultPadding),
+        Row(
+          children: [
+            GestureDetector(
+              onTap: () {},
+              child: const CustomText(
+                text: "Login",
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                color: kDarkBlackColor,
+              ),
             ),
-          ),
-          child: Text("Let's Talk"),
+            const SizedBox(width: 10),
+            const CustomText(
+              text: "|",
+            ),
+            const SizedBox(width: 10),
+            OutlinedButton(
+              onPressed: () {},
+              style: OutlinedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)),
+                side: const BorderSide(width: 1.5, color: kPrimaryColor),
+                padding: EdgeInsets.symmetric(
+                  horizontal: kDefaultPadding * 1.5,
+                  vertical:
+                      kDefaultPadding / (Responsive.isDesktop(context) ? 1 : 2),
+                ),
+              ),
+              child: const Text("Let's Talk"),
+            ),
+          ],
         ),
       ],
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trysell_website/controllers/MenuController.dart';
 import 'package:trysell_website/screens/home/components/home_screen_view.dart';
+import 'package:trysell_website/screens/home/components/services.dart';
 import 'package:trysell_website/screens/home/home_screen.dart';
 
 import '../../constants.dart';
@@ -27,7 +28,11 @@ class MainScreen extends StatelessWidget {
                 builder: (_) => _controller.selectedIndex == 0
                     ? const HomeScreenView()
                     : _controller.selectedIndex == 1
-                        ? const Text("View 2")
+                        ? Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height,
+                            child: Services(),
+                          )
                         : _controller.selectedIndex == 2
                             ? const Text("View 3")
                             : Container(

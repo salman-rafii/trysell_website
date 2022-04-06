@@ -112,7 +112,7 @@ class HomeScreenView extends StatelessWidget {
                   //change
 
                   childAspectRatio: 3 / 2,
-                  crossAxisSpacing: 10,
+                  crossAxisSpacing: 30,
                   mainAxisSpacing: 20),
               itemCount: servicesList.length,
               itemBuilder: (BuildContext ctx, index) {
