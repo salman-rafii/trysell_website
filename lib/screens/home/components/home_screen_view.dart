@@ -8,9 +8,35 @@ class HomeScreenView extends StatelessWidget {
   const HomeScreenView({
     Key? key,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    List servicesList = [
+      {
+        "title": "UI/UX Design",
+        "description":
+            "UI/UX services refer to the team of skilled and creative UI/UX professionals with proven experience in the design and development industry. They are extremely knowledgeable about how end-users interact with the digital platforms ",
+        "icon": Icons.graphic_eq,
+        "backgroundColor": Colors.red[100],
+        "iconColor": Colors.red[300]
+      },
+      {
+        "title": "Digital Marketing",
+        "description":
+            "We’re not a static company. We don’t limit ourselves to specific industries. Thrive has the experience and professionals to build a custom website and use multiple digital marketing services to assist any size company in any industry.",
+        "icon": Icons.people_outline,
+        "backgroundColor": Colors.amber[100],
+        "iconColor": Colors.amber[300]
+      },
+      {
+        "title": "Web & Mobile Development",
+        "description":
+            "Put your business online and get more sales & leads with the quality and professional web development services. We have experience in all facets of web development to help our clients reach their full digital potential",
+        "icon": Icons.web_asset_off_outlined,
+        "backgroundColor": Colors.green[100],
+        "iconColor": Colors.green[300]
+      },
+    ];
+
     return Column(
       children: [
         Container(
@@ -61,7 +87,7 @@ class HomeScreenView extends StatelessWidget {
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
+          children: const [
             Text(
               "TrySell has developed an effective strategy for providing the best IT services to clients  ",
               textAlign: TextAlign.center,
@@ -88,47 +114,14 @@ class HomeScreenView extends StatelessWidget {
                   childAspectRatio: 3 / 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 20),
-              itemCount: 3,
+              itemCount: servicesList.length,
               itemBuilder: (BuildContext ctx, index) {
-                return Card(
-                  elevation: 4,
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.red[100],
-                              child: Icon(
-                                Icons.graphic_eq,
-                                color: Colors.red[300],
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 6,
-                            ),
-                            const Text(
-                              "UI/UX Design",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
-                            )
-                          ],
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(left: 44),
-                          child: const Text(
-                            "UI/UX services refer to the team of skilled and creative UI/UX professionals with proven experience in the design and development industry. They are extremely knowledgeable about how end-users interact with the digital platforms and how to create user friendly interfaces for enjoyable customer experiences ",
-                            textAlign: TextAlign.left,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                );
+                return servicesCard(
+                    title: servicesList[index]["title"],
+                    description: servicesList[index]["description"],
+                    icon: servicesList[index]["icon"],
+                    backgroundColor: servicesList[index]["backgroundColor"],
+                    iconColor: servicesList[index]["iconColor"]);
               },
             ),
           ),
@@ -218,6 +211,59 @@ class HomeScreenView extends StatelessWidget {
         //   ],
         // )
       ],
+    );
+  }
+
+  Card servicesCard({title, description, icon, backgroundColor, iconColor}) {
+    return Card(
+      elevation: 4,
+      child: Container(
+        padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+        child: Column(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
+                // color: Colors.green,
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: backgroundColor,
+                      child: Icon(
+                        icon,
+                        color: iconColor,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 6,
+                    ),
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Raleway",
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 3,
+              child: Container(
+                // color: Colors.red,
+                padding: const EdgeInsets.only(left: 44),
+                child: Text(
+                  description,
+                  textAlign: TextAlign.left,
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
