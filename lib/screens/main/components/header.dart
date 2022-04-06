@@ -24,13 +24,12 @@ class _HeaderState extends State<Header> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: Colors.white,
       child: SafeArea(
         child: Column(
           children: [
             Container(
               constraints: const BoxConstraints(maxWidth: kMaxWidth),
-              padding: const EdgeInsets.all(kDefaultPadding),
+              padding: const EdgeInsets.only(top: 30.0),
               child: Column(
                 children: [
                   Row(
@@ -66,8 +65,8 @@ class _HeaderState extends State<Header> {
                   //               ? welcomeToView(title: "Contact Us")
                   //               : welcomeToView(title: "Welcome to Our Blog"),
                   // ),
-                  if (Responsive.isDesktop(context))
-                    const SizedBox(height: kDefaultPadding),
+                  // if (Responsive.isDesktop(context))
+                  //   const SizedBox(height: kDefaultPadding),
                 ],
               ),
             )
