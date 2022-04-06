@@ -12,7 +12,7 @@ class CarouselItemModel {
   });
 }
 
-List<CarouselItemModel> carouselItemsServices = List.generate(
+List<CarouselItemModel> carouselItemsMAD = List.generate(
   5,
   (index) => CarouselItemModel(
     text: Column(
@@ -28,20 +28,20 @@ List<CarouselItemModel> carouselItemsServices = List.generate(
             fontSize: 20.0,
           ),
         ),
-        const SizedBox(
-          height: 18.0,
-        ),
+        // const SizedBox(
+        //   height: 18.0,
+        // ),
         const Text(
-          "SECURE IT SOLUTIONS\n ",
+          "Mobile App Development\n ",
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontSize: 40.0,
             fontWeight: FontWeight.w900,
             height: 1.3,
           ),
         ),
         const SizedBox(
-          height: 10.0,
+          height: 5.0,
         ),
         const Text(
           "Full-stack developer, based in Barcelona",
@@ -56,8 +56,8 @@ List<CarouselItemModel> carouselItemsServices = List.generate(
         ),
         Wrap(
           children: [
-            Text(
-              "Need a full custom website?",
+            const Text(
+              "Need a full custom Mobile App?",
               style: TextStyle(
                 color: kCaptionColor,
                 fontSize: 15.0,
@@ -72,7 +72,7 @@ List<CarouselItemModel> carouselItemsServices = List.generate(
                   " Got a project? Let's talk.",
                   style: TextStyle(
                     height: 1.5,
-                    color: Colors.white,
+                    color: Colors.blue,
                     fontSize: 15.0,
                   ),
                 ),
@@ -110,8 +110,10 @@ List<CarouselItemModel> carouselItemsServices = List.generate(
       ],
     ),
     image: Image.asset(
-      "assets/images/0.png",
+      "assets/images/MobileApp.png",
       fit: BoxFit.contain,
+      height: 450,
+      width: 450,
     ),
   ),
 );

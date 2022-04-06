@@ -28,7 +28,7 @@ class Carousel extends StatelessWidget {
                 height: carouselContainerHeight,
               ),
               items: List.generate(
-                carouselItems.length,
+                carouselItemsServices.length,
                 (index) => Builder(
                   builder: (BuildContext context) {
                     return Container(
@@ -39,18 +39,18 @@ class Carousel extends StatelessWidget {
                         // Responsive views
                         desktop: _buildDesktop(
                           context,
-                          carouselItems[index].text!,
-                          carouselItems[index].image!,
+                          carouselItemsServices[index].text!,
+                          carouselItemsServices[index].image!,
                         ),
                         tablet: _buildTablet(
                           context,
-                          carouselItems[index].text!,
-                          carouselItems[index].image!,
+                          carouselItemsServices[index].text!,
+                          carouselItemsServices[index].image!,
                         ),
                         mobile: _buildMobile(
                           context,
-                          carouselItems[index].text!,
-                          carouselItems[index].image!,
+                          carouselItemsServices[index].text!,
+                          carouselItemsServices[index].image!,
                         ),
                       ),
                     );
