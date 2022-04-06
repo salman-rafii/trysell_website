@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trysell_website/controllers/MenuController.dart';
-import 'package:trysell_website/screens/home/components/carousal.dart';
 import 'package:trysell_website/screens/home/components/home_screen_view.dart';
 import 'package:trysell_website/screens/home/home_screen.dart';
 
@@ -11,6 +10,8 @@ import 'components/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
   final MenuController _controller = Get.put(MenuController());
+
+  MainScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,16 +27,14 @@ class MainScreen extends StatelessWidget {
                 builder: (_) => _controller.selectedIndex == 0
                     ? const HomeScreenView()
                     : _controller.selectedIndex == 1
-                        ? Container(
-                            child: Text("View 2"),
-                          )
+                        ? const Text("View 2")
                         : _controller.selectedIndex == 2
-                            ? Container(child: Text("View 3"))
+                            ? const Text("View 3")
                             : Container(
-                                padding: EdgeInsets.all(kDefaultPadding),
+                                padding: const EdgeInsets.all(kDefaultPadding),
                                 constraints:
-                                    BoxConstraints(maxWidth: kMaxWidth),
-                                child: SafeArea(child: HomeScreen()),
+                                    const BoxConstraints(maxWidth: kMaxWidth),
+                                child: const SafeArea(child: HomeScreen()),
                               ),
               )
             ],
