@@ -2,9 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:trysell_website/constants.dart';
-import 'package:trysell_website/models/carousal_items_MAD.dart';
+
 import 'package:trysell_website/models/carousal_items_services.dart';
 import 'package:trysell_website/screen_helper.dart';
+import 'package:trysell_website/screens/home/components/MyCarousal.dart';
+
+
 
 class Services extends StatefulWidget {
   @override
@@ -21,187 +24,262 @@ class _ServicesState extends State<Services> {
 
   @override
   Widget build(BuildContext context) {
-    double carouselContainerHeight = MediaQuery.of(context).size.height *
-        (ScreenHelper.isMobile(context) ? .7 : .85);
-    return Container(
-      height: carouselContainerHeight,
-      width: double.infinity,
-      child: SingleChildScrollView(
-        child: Column(
+    String LoremIpsum =
+        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, \nby injected humour, or randomised words which don't look even slightly believable. \nIf you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. \nAll the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. \nIt uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. \nThe generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.";
+    List myCarousalData = [
+      {
+        "title": "Hybrid Mobile App Development",
+        "description": "$LoremIpsum",
+        "image": "assets/images/MobileApp.png",
+        "btnTXT": "Get Yours"
+      },
+      {
+        "title": "Native Mobile App Development",
+        "description": "$LoremIpsum",
+        "image": "assets/images/MobileApp.png",
+        "btnTXT": "Get Yours"
+      },
+      {
+        "title": "Website Development",
+        "description": "$LoremIpsum",
+        "image": "assets/images/web-8.png",
+        "btnTXT": "Let's Discuss"
+      },
+      {
+        "title": "Digital Marketing",
+        "description": "$LoremIpsum",
+        "image": "assets/images/DigitalMarketing.png",
+        "btnTXT": "Let's Market"
+      },
+      {
+        "title": "Graphics Designing",
+        "description": "$LoremIpsum",
+        "image": "assets/images/Ai.png",
+        "btnTXT": "Let's Design"
+      },
+      {
+        "title": "Content Writing",
+        "description": "$LoremIpsum",
+        "image": "assets/images/content writter.png",
+        "btnTXT": "Let's Write"
+      },
+      {
+        "title": "Artifical Intelligence",
+        "description": "$LoremIpsum",
+        "image": "assets/images/Ai.png",
+        "btnTXT": "Let's Innovate"
+      },
+      {
+        "title": "Wordpress",
+        "description": "$LoremIpsum",
+        "image": "assets/images/web-8.png",
+        "btnTXT": "Get Yours"
+      }
+    ];
+    // double carouselContainerHeight = MediaQuery.of(context).size.height *
+    //     (ScreenHelper.isMobile(context) ? .7 : .85);
+    // double carouselContainerHeight = MediaQuery.of(context).size.height;
+    return Column(
+      // mainAxisAlignment: MainAxisAlignment.center,
+      // crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const SizedBox(
+          height: 50,
+        ),
+        Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              height: 50,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  "What We Do ",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 40.0,
-                    fontWeight: FontWeight.w900,
-                    height: 1.3,
-                  ),
-                ),
-                const Text(
-                  "For You!",
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 40.0,
-                    fontWeight: FontWeight.w900,
-                    height: 1.3,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            const Text(
-              "Lorem Ipsum Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum \n  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.",
+             Text(
+              "What We Do ",
               style: TextStyle(
-                color: Color.fromRGBO(166, 177, 187, 1),
-                fontSize: 12.0,
+                color: Colors.black,
+                fontSize: 40.0,
                 fontWeight: FontWeight.w900,
                 height: 1.3,
               ),
-              textAlign: TextAlign.center,
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              alignment: Alignment.center,
-              child: CarouselSlider(
-                carouselController: carouselController,
-                options: CarouselOptions(
-                  // autoPlay: true,
-                  viewportFraction: 1,
-                  scrollPhysics: NeverScrollableScrollPhysics(),
-                  height: carouselContainerHeight,
-                ),
-                items: List.generate(
-                  carouselItemsServices.length,
-                  (index) => Builder(
-                    builder: (BuildContext context) {
-                      return Container(
-                        constraints: BoxConstraints(
-                          minHeight: carouselContainerHeight,
-                        ),
-                        child: SingleChildScrollView(
-                          physics:NeverScrollableScrollPhysics(),
-                          child: Column(
-                            children: [
-                              ScreenHelper(
-                                // Responsive views
-                                desktop: _buildDesktop(
-                                  context,
-                                  carouselItemsServices[index].image!,
-                                  carouselItemsServices[index].text!,
-                                ),
-                                tablet: _buildTablet(
-                                  context,
-                                  carouselItemsServices[index].image!,
-                                  carouselItemsServices[index].text!,
-                                ),
-                                mobile: _buildMobile(
-                                  context,
-                                  carouselItemsServices[index].image!,
-                                  carouselItemsServices[index].text!,
-                                ),
-                              ),
-                              ScreenHelper(
-                                // Responsive views
-                                desktop: _buildDesktop(
-                                  context,
-                                  carouselItemsMAD[index].text!,
-                                  carouselItemsMAD[index].image!,
-                                ),
-                                tablet: _buildTablet(
-                                  context,
-                                  carouselItemsMAD[index].text!,
-                                  carouselItemsMAD[index].image!,
-                                ),
-                                mobile: _buildMobile(
-                                  context,
-                                  carouselItemsMAD[index].text!,
-                                  carouselItemsMAD[index].image!,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ).toList(),
+             Text(
+              "For You!",
+              style: TextStyle(
+                color: Colors.blue,
+                fontSize: 40.0,
+                fontWeight: FontWeight.w900,
+                height: 1.3,
               ),
-            )
+            ),
           ],
         ),
-      ),
+        const SizedBox(
+          height: 10,
+        ),
+        const Text(
+          "Lorem Ipsum Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum  Lorem Ipsum \n  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.",
+          style: TextStyle(
+            color: Color.fromRGBO(166, 177, 187, 1),
+            fontSize: 12.0,
+            fontWeight: FontWeight.w900,
+            height: 1.3,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Container(
+          // alignment: Alignment.center,
+          child: CarouselSlider(
+            carouselController: carouselController,
+            options: CarouselOptions(
+              // autoPlay: true,
+              viewportFraction: 1,
+              scrollPhysics: const NeverScrollableScrollPhysics(),
+              // height: carouselContainerHeight,
+            ),
+            items: List.generate(
+              carouselItemsServices.length,
+              (index) => Builder(
+                builder: (BuildContext context) {
+                  return Container(
+                    // constraints: BoxConstraints(
+                    //   minHeight: carouselContainerHeight,
+                    // ),
+                    child: SingleChildScrollView(
+                      // physics: const NeverScrollableScrollPhysics(),
+                      child: Column(
+                        children: [
+                          ScreenHelper(
+                            // Responsive views
+                            desktop: _buildDesktop(
+                              context,
+                              myCarousalData,
+
+                            ),
+                            tablet: _buildTablet(
+                              context,
+
+                              myCarousalData,
+
+                            ),
+                            mobile: _buildMobile(
+                              context,
+
+                              myCarousalData,
+
+                            ),
+                          ),
+                          // ScreenHelper(
+                          //   // Responsive views
+                          //   desktop: _buildDesktop(
+                          //     context,
+                          //     carouselItemsMAD[index].text!,
+                          //     carouselItemsMAD[index].image!,
+                          //   ),
+                          //   tablet: _buildTablet(
+                          //     context,
+                          //     carouselItemsMAD[index].text!,
+                          //     carouselItemsMAD[index].image!,
+                          //   ),
+                          //   mobile: _buildMobile(
+                          //     context,
+                          //     carouselItemsMAD[index].text!,
+                          //     carouselItemsMAD[index].image!,
+                          //   ),
+                          // ),
+                          // ScreenHelper(
+                          //   // Responsive views
+                          //   desktop: _buildDesktop(
+                          //     context,
+                          //     carouselItemsDM[index].image!,
+                          //     carouselItemsDM[index].text!,
+                          //   ),
+                          //   tablet: _buildTablet(
+                          //     context,
+                          //     carouselItemsDM[index].image!,
+                          //     carouselItemsServices[index].text!,
+                          //   ),
+                          //   mobile: _buildMobile(
+                          //     context,
+                          //     carouselItemsDM[index].image!,
+                          //     carouselItemsDM[index].text!,
+                          //   ),
+                          // ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ).toList(),
+          ),
+        )
+      ],
     );
   }
 }
 
 // Big screens
-Widget _buildDesktop(BuildContext context, Widget text, Widget image) {
-  return Center(
-    child: ResponsiveWrapper(
+Widget _buildDesktop(BuildContext context, List mycarousalData) {
+  return ResponsiveWrapper(
       maxWidth: kDesktopMaxWidth,
       minWidth: kDesktopMaxWidth,
       defaultScale: false,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: text,
-              ),
-              Expanded(
-                child: image,
-              )
-            ],
-          ),
-        ],
-      ),
-    ),
-  );
+      child: ListView.builder(
+physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: mycarousalData.length ,
+          itemBuilder: (context, index) {
+            return myCarousal(
+                  title: mycarousalData[index]["title"],
+                  description: mycarousalData[index]["description"],
+                  buttonText: mycarousalData[index]["btnTXT"],
+                  image: mycarousalData[index]["image"],
+                );
+
+
+          }));
 }
 
 // Mid screens
-Widget _buildTablet(BuildContext context, Widget text, Widget image) {
-  return Center(
-    child: ResponsiveWrapper(
-      maxWidth: kTabletMaxWidth,
-      minWidth: kTabletMaxWidth,
+Widget _buildTablet(BuildContext context, List mycarousalData) {
+  return ResponsiveWrapper(
+      maxWidth: kDesktopMaxWidth,
+      minWidth: kDesktopMaxWidth,
       defaultScale: false,
-      child: Row(
-        children: [
-          Expanded(
-            child: text,
-          ),
-          Expanded(
-            child: image,
-          )
-        ],
-      ),
-    ),
-  );
+      child: ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: mycarousalData.length ,
+          itemBuilder: (context, index) {
+            return myCarousal(
+              title: mycarousalData[index]["title"],
+              description: mycarousalData[index]["description"],
+              buttonText: mycarousalData[index]["btnTXT"],
+              image: mycarousalData[index]["image"],
+            );
+
+
+          }));
 }
 
 // SMall Screens
 
-Widget _buildMobile(BuildContext context, Widget text, Widget image) {
-  return Container(
-    constraints: BoxConstraints(
-      maxWidth: getMobileMaxWidth(context),
-    ),
-    width: double.infinity,
-    child: text,
-  );
+Widget _buildMobile(BuildContext context, List mycarousalData) {
+  return ResponsiveWrapper(
+      maxWidth: kDesktopMaxWidth,
+      minWidth: kDesktopMaxWidth,
+      defaultScale: false,
+      child: ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: mycarousalData.length ,
+          itemBuilder: (context, index) {
+            return myCarousal(
+              title: mycarousalData[index]["title"],
+              description: mycarousalData[index]["description"],
+              buttonText: mycarousalData[index]["btnTXT"],
+              image: mycarousalData[index]["image"],
+            );
+
+
+          }));
 }
