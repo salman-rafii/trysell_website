@@ -4,7 +4,8 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:trysell_website/constants.dart';
 
 import 'package:trysell_website/models/carousal_items_services.dart';
-import 'package:trysell_website/screen_helper.dart';
+import 'package:trysell_website/helpers/screen_helper.dart';
+import 'package:trysell_website/models/services_list.dart';
 import 'package:trysell_website/screens/home/components/my_carousal.dart';
 
 class Services extends StatefulWidget {
@@ -23,58 +24,6 @@ class _ServicesState extends State<Services> {
 
   @override
   Widget build(BuildContext context) {
-    String loremIpsum =
-        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, \nby injected humour, or randomised words which don't look even slightly believable. \nIf you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. \nAll the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. \nIt uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. \nThe generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.";
-    List myCarousalData = [
-      {
-        "title": "Hybrid Mobile App Development",
-        "description": loremIpsum,
-        "image": "assets/images/MobileApp.png",
-        "btnTXT": "Get Yours"
-      },
-      {
-        "title": "Native Mobile App Development",
-        "description": loremIpsum,
-        "image": "assets/images/MobileApp.png",
-        "btnTXT": "Get Yours"
-      },
-      {
-        "title": "Website Development",
-        "description": loremIpsum,
-        "image": "assets/images/web-8.png",
-        "btnTXT": "Let's Discuss"
-      },
-      {
-        "title": "Digital Marketing",
-        "description": loremIpsum,
-        "image": "assets/images/DigitalMarketing.png",
-        "btnTXT": "Let's Market"
-      },
-      {
-        "title": "Graphics Designing",
-        "description": loremIpsum,
-        "image": "assets/images/Ai.png",
-        "btnTXT": "Let's Design"
-      },
-      {
-        "title": "Content Writing",
-        "description": loremIpsum,
-        "image": "assets/images/content writter.png",
-        "btnTXT": "Let's Write"
-      },
-      {
-        "title": "Artifical Intelligence",
-        "description": loremIpsum,
-        "image": "assets/images/Ai.png",
-        "btnTXT": "Let's Innovate"
-      },
-      {
-        "title": "Wordpress",
-        "description": loremIpsum,
-        "image": "assets/images/web-8.png",
-        "btnTXT": "Get Yours"
-      }
-    ];
     // double carouselContainerHeight = MediaQuery.of(context).size.height *
     //     (ScreenHelper.isMobile(context) ? .7 : .85);
     // double carouselContainerHeight = MediaQuery.of(context).size.height;

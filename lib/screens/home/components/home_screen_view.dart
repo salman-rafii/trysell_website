@@ -1,69 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 import 'package:trysell_website/constants.dart';
-import 'package:trysell_website/screen_helper.dart';
+import 'package:trysell_website/helpers/screen_helper.dart';
+import 'package:trysell_website/helpers/services_helper.dart';
+import 'package:trysell_website/models/services_list.dart';
 import 'package:trysell_website/screens/home/components/carousal.dart';
+import 'package:trysell_website/screens/home/components/cv_section.dart';
 import 'package:trysell_website/screens/home/components/footer.dart';
 import 'package:trysell_website/screens/home/components/testimonial_widget.dart';
 import 'package:trysell_website/widgets/custom_text.dart';
+import 'package:trysell_website/widgets/size_config.dart';
 
-class HomeScreenView extends StatelessWidget {
+class HomeScreenView extends StatefulWidget {
   const HomeScreenView({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<HomeScreenView> createState() => _HomeScreenViewState();
+}
+
+class _HomeScreenViewState extends State<HomeScreenView> {
   @override
   Widget build(BuildContext context) {
-    List servicesList = [
-      {
-        "title": "UI/UX Design",
-        "description":
-            "UI/UX services refer to the team of skilled and creative UI/UX professionals with proven experience in the design and development industry. They are extremely knowledgeable about how end-users interact with the digital platforms ",
-        "icon": Icons.graphic_eq,
-        "backgroundColor": Colors.red[100],
-        "iconColor": Colors.red[300]
-      },
-      {
-        "title": "Digital Marketing",
-        "description":
-            "We’re not a static company. We don’t limit ourselves to specific industries. Thrive has the experience and professionals to build a custom website and use multiple digital marketing services to assist any size company in any industry.",
-        "icon": Icons.people_outline,
-        "backgroundColor": Colors.amber[100],
-        "iconColor": Colors.amber[300]
-      },
-      {
-        "title": "Web & Mobile Development",
-        "description":
-            "Put your business online and get more sales & leads with the quality and professional web development services. We have experience in all facets of web development to help our clients reach their full digital potential",
-        "icon": Icons.web_asset_off_outlined,
-        "backgroundColor": Colors.green[100],
-        "iconColor": Colors.green[300]
-      },
-      {
-        "title": "UI/UX Design",
-        "description":
-            "UI/UX services refer to the team of skilled and creative UI/UX professionals with proven experience in the design and development industry. They are extremely knowledgeable about how end-users interact with the digital platforms ",
-        "icon": Icons.graphic_eq,
-        "backgroundColor": Colors.red[100],
-        "iconColor": Colors.red[300]
-      },
-      {
-        "title": "Digital Marketing",
-        "description":
-            "We’re not a static company. We don’t limit ourselves to specific industries. Thrive has the experience and professionals to build a custom website and use multiple digital marketing services to assist any size company in any industry.",
-        "icon": Icons.people_outline,
-        "backgroundColor": Colors.amber[100],
-        "iconColor": Colors.amber[300]
-      },
-      {
-        "title": "Web & Mobile Development",
-        "description":
-            "Put your business online and get more sales & leads with the quality and professional web development services. We have experience in all facets of web development to help our clients reach their full digital potential",
-        "icon": Icons.web_asset_off_outlined,
-        "backgroundColor": Colors.green[100],
-        "iconColor": Colors.green[300]
-      },
-    ];
-
     return Column(
       children: [
         Container(
@@ -79,31 +37,26 @@ class HomeScreenView extends StatelessWidget {
           // height: MediaQuery.of(context).size.height,
           child: Carousel(),
         ),
-        const SizedBox(
-          height: 30,
+        SizedBox(
+          height: MySize.size80,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            CustomText(
-              text: "Our",
+          children: [
+            const CustomText(
+              text: "Our Services",
               color: kDarkBlackColor,
               fontSize: 30.0,
               fontWeight: FontWeight.w600,
             ),
             SizedBox(
-              width: 4,
-            ),
-            CustomText(
-              text: "Services",
-              color: kPrimaryColor,
-              fontSize: 30.0,
-              fontWeight: FontWeight.w700,
+              width: MySize.size4,
             ),
           ],
         ),
-        const SizedBox(
-          height: 30,
+        middleDivider(),
+        SizedBox(
+          height: MySize.size80,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -115,8 +68,8 @@ class HomeScreenView extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
-          height: 30,
+        SizedBox(
+          height: MySize.size80,
         ),
         ScreenHelper(
           desktop: buildServicesGridViewSection(
@@ -132,117 +85,52 @@ class HomeScreenView extends StatelessWidget {
             kTabletMaxWidth,
           ),
         ),
-        const SizedBox(
-          height: 30,
+        SizedBox(
+          height: MySize.size80,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            CustomText(
-              text: "What Makes us",
+          children: [
+            const CustomText(
+              text: "What We Do",
               color: kDarkBlackColor,
               fontSize: 30.0,
               fontWeight: FontWeight.w600,
             ),
             SizedBox(
-              width: 4,
-            ),
-            CustomText(
-              text: "Different",
-              color: kPrimaryColor,
-              fontSize: 30.0,
-              fontWeight: FontWeight.w700,
+              width: MySize.size4,
             ),
           ],
         ),
-        const SizedBox(
-          height: 30,
+        middleDivider(),
+        SizedBox(
+          height: MySize.size80,
+        ),
+        const WhatWeDo(),
+        SizedBox(
+          height: MySize.size80,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            CustomText(
+              text: "Our Happy Clients",
+              color: kDarkBlackColor,
+              fontSize: 30.0,
+              fontWeight: FontWeight.w600,
+            ),
+          ],
+        ),
+        middleDivider(),
+        SizedBox(
+          height: MySize.size30,
         ),
         const TestimonialWidget(),
-        const SizedBox(
-          height: 50.0,
+        SizedBox(
+          height: MySize.size80,
         ),
         const Footer(),
       ],
-    );
-  }
-
-  ResponsiveWrapper buildServicesGridViewSection(
-      BuildContext context, List<dynamic> servicesList, double width) {
-    return ResponsiveWrapper(
-      maxWidth: width,
-      minWidth: width,
-      defaultScale: false,
-      // color: Colors.red,
-      // width: MediaQuery.of(context).size.width,
-      child: GridView.builder(
-        shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: MediaQuery.of(context).size.width < 650 ? 1 : 3,
-            // maxCrossAxisExtent: 200,
-            //change
-
-            childAspectRatio:
-                MediaQuery.of(context).size.width < 650 ? 5 / 2 : 3 / 2,
-            crossAxisSpacing: 30,
-            mainAxisSpacing: 20),
-        itemCount: servicesList.length,
-        itemBuilder: (BuildContext ctx, index) {
-          return servicesCard(
-              title: servicesList[index]["title"],
-              description: servicesList[index]["description"],
-              icon: servicesList[index]["icon"],
-              backgroundColor: servicesList[index]["backgroundColor"],
-              iconColor: servicesList[index]["iconColor"]);
-        },
-      ),
-    );
-  }
-
-  Card servicesCard({title, description, icon, backgroundColor, iconColor}) {
-    return Card(
-      elevation: 4,
-      child: Container(
-        padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-        child: Column(
-          children: [
-            Expanded(
-              flex: 1,
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    backgroundColor: backgroundColor,
-                    child: Icon(
-                      icon,
-                      color: iconColor,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 6,
-                  ),
-                  CustomText(
-                    text: title,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  )
-                ],
-              ),
-            ),
-            Expanded(
-              flex: 3,
-              child: Container(
-                // color: Colors.red,
-                padding: const EdgeInsets.only(left: 44),
-                child: CustomText(
-                  text: description,
-                  textAlign: TextAlign.left,
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
     );
   }
 }

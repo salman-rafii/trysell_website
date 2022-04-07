@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:trysell_website/constants.dart';
 import 'package:trysell_website/models/footer_item.dart';
-import 'package:trysell_website/screen_helper.dart';
+import 'package:trysell_website/helpers/screen_helper.dart';
 import 'package:trysell_website/widgets/custom_text.dart';
 
 final List<FooterItem> footerItems = [
@@ -79,6 +79,7 @@ Widget _buildUi(double width, BuildContext context) {
                                     Image.asset(
                                       footerItem.iconPath!,
                                       width: 25.0,
+                                      color: Colors.white,
                                     ),
                                     const SizedBox(
                                       width: 15.0,
