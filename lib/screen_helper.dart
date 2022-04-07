@@ -5,7 +5,7 @@ class ScreenHelper extends StatelessWidget {
   final Widget? tablet;
   final Widget? desktop;
 
-  ScreenHelper({Key? key, this.desktop, this.mobile, this.tablet})
+  const ScreenHelper({Key? key, this.desktop, this.mobile, this.tablet})
       : super(key: key);
 
   static bool isMobile(BuildContext context) =>

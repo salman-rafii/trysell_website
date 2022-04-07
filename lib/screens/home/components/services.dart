@@ -5,11 +5,11 @@ import 'package:trysell_website/constants.dart';
 
 import 'package:trysell_website/models/carousal_items_services.dart';
 import 'package:trysell_website/screen_helper.dart';
-import 'package:trysell_website/screens/home/components/MyCarousal.dart';
-
-
+import 'package:trysell_website/screens/home/components/my_carousal.dart';
 
 class Services extends StatefulWidget {
+  const Services({Key? key}) : super(key: key);
+
   @override
   State<Services> createState() => _ServicesState();
 }
@@ -19,59 +19,58 @@ class _ServicesState extends State<Services> {
   @override
   void initState() {
     super.initState();
-    print(carouselItemsServices.length);
   }
 
   @override
   Widget build(BuildContext context) {
-    String LoremIpsum =
+    String loremIpsum =
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, \nby injected humour, or randomised words which don't look even slightly believable. \nIf you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. \nAll the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. \nIt uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. \nThe generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.";
     List myCarousalData = [
       {
         "title": "Hybrid Mobile App Development",
-        "description": "$LoremIpsum",
+        "description": loremIpsum,
         "image": "assets/images/MobileApp.png",
         "btnTXT": "Get Yours"
       },
       {
         "title": "Native Mobile App Development",
-        "description": "$LoremIpsum",
+        "description": loremIpsum,
         "image": "assets/images/MobileApp.png",
         "btnTXT": "Get Yours"
       },
       {
         "title": "Website Development",
-        "description": "$LoremIpsum",
+        "description": loremIpsum,
         "image": "assets/images/web-8.png",
         "btnTXT": "Let's Discuss"
       },
       {
         "title": "Digital Marketing",
-        "description": "$LoremIpsum",
+        "description": loremIpsum,
         "image": "assets/images/DigitalMarketing.png",
         "btnTXT": "Let's Market"
       },
       {
         "title": "Graphics Designing",
-        "description": "$LoremIpsum",
+        "description": loremIpsum,
         "image": "assets/images/Ai.png",
         "btnTXT": "Let's Design"
       },
       {
         "title": "Content Writing",
-        "description": "$LoremIpsum",
+        "description": loremIpsum,
         "image": "assets/images/content writter.png",
         "btnTXT": "Let's Write"
       },
       {
         "title": "Artifical Intelligence",
-        "description": "$LoremIpsum",
+        "description": loremIpsum,
         "image": "assets/images/Ai.png",
         "btnTXT": "Let's Innovate"
       },
       {
         "title": "Wordpress",
-        "description": "$LoremIpsum",
+        "description": loremIpsum,
         "image": "assets/images/web-8.png",
         "btnTXT": "Get Yours"
       }
@@ -88,8 +87,8 @@ class _ServicesState extends State<Services> {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-             Text(
+          children: const [
+            Text(
               "What We Do ",
               style: TextStyle(
                 color: Colors.black,
@@ -98,7 +97,7 @@ class _ServicesState extends State<Services> {
                 height: 1.3,
               ),
             ),
-             Text(
+            Text(
               "For You!",
               style: TextStyle(
                 color: Colors.blue,
@@ -125,92 +124,79 @@ class _ServicesState extends State<Services> {
         const SizedBox(
           height: 10,
         ),
-        Container(
-          // alignment: Alignment.center,
-          child: CarouselSlider(
-            carouselController: carouselController,
-            options: CarouselOptions(
-              // autoPlay: true,
-              viewportFraction: 1,
-              scrollPhysics: const NeverScrollableScrollPhysics(),
-              // height: carouselContainerHeight,
-            ),
-            items: List.generate(
-              carouselItemsServices.length,
-              (index) => Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                    // constraints: BoxConstraints(
-                    //   minHeight: carouselContainerHeight,
-                    // ),
-                    child: SingleChildScrollView(
-                      // physics: const NeverScrollableScrollPhysics(),
-                      child: Column(
-                        children: [
-                          ScreenHelper(
-                            // Responsive views
-                            desktop: _buildDesktop(
-                              context,
-                              myCarousalData,
-
-                            ),
-                            tablet: _buildTablet(
-                              context,
-
-                              myCarousalData,
-
-                            ),
-                            mobile: _buildMobile(
-                              context,
-
-                              myCarousalData,
-
-                            ),
-                          ),
-                          // ScreenHelper(
-                          //   // Responsive views
-                          //   desktop: _buildDesktop(
-                          //     context,
-                          //     carouselItemsMAD[index].text!,
-                          //     carouselItemsMAD[index].image!,
-                          //   ),
-                          //   tablet: _buildTablet(
-                          //     context,
-                          //     carouselItemsMAD[index].text!,
-                          //     carouselItemsMAD[index].image!,
-                          //   ),
-                          //   mobile: _buildMobile(
-                          //     context,
-                          //     carouselItemsMAD[index].text!,
-                          //     carouselItemsMAD[index].image!,
-                          //   ),
-                          // ),
-                          // ScreenHelper(
-                          //   // Responsive views
-                          //   desktop: _buildDesktop(
-                          //     context,
-                          //     carouselItemsDM[index].image!,
-                          //     carouselItemsDM[index].text!,
-                          //   ),
-                          //   tablet: _buildTablet(
-                          //     context,
-                          //     carouselItemsDM[index].image!,
-                          //     carouselItemsServices[index].text!,
-                          //   ),
-                          //   mobile: _buildMobile(
-                          //     context,
-                          //     carouselItemsDM[index].image!,
-                          //     carouselItemsDM[index].text!,
-                          //   ),
-                          // ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ).toList(),
+        CarouselSlider(
+          carouselController: carouselController,
+          options: CarouselOptions(
+            // autoPlay: true,
+            viewportFraction: 1,
+            scrollPhysics: const NeverScrollableScrollPhysics(),
+            // height: carouselContainerHeight,
           ),
+          items: List.generate(
+            carouselItemsServices.length,
+            (index) => Builder(
+              builder: (BuildContext context) {
+                return SingleChildScrollView(
+                  // physics: const NeverScrollableScrollPhysics(),
+                  child: Column(
+                    children: [
+                      ScreenHelper(
+                        // Responsive views
+                        desktop: _buildDesktop(
+                          context,
+                          myCarousalData,
+                        ),
+                        tablet: _buildTablet(
+                          context,
+                          myCarousalData,
+                        ),
+                        mobile: _buildMobile(
+                          context,
+                          myCarousalData,
+                        ),
+                      ),
+                      // ScreenHelper(
+                      //   // Responsive views
+                      //   desktop: _buildDesktop(
+                      //     context,
+                      //     carouselItemsMAD[index].text!,
+                      //     carouselItemsMAD[index].image!,
+                      //   ),
+                      //   tablet: _buildTablet(
+                      //     context,
+                      //     carouselItemsMAD[index].text!,
+                      //     carouselItemsMAD[index].image!,
+                      //   ),
+                      //   mobile: _buildMobile(
+                      //     context,
+                      //     carouselItemsMAD[index].text!,
+                      //     carouselItemsMAD[index].image!,
+                      //   ),
+                      // ),
+                      // ScreenHelper(
+                      //   // Responsive views
+                      //   desktop: _buildDesktop(
+                      //     context,
+                      //     carouselItemsDM[index].image!,
+                      //     carouselItemsDM[index].text!,
+                      //   ),
+                      //   tablet: _buildTablet(
+                      //     context,
+                      //     carouselItemsDM[index].image!,
+                      //     carouselItemsServices[index].text!,
+                      //   ),
+                      //   mobile: _buildMobile(
+                      //     context,
+                      //     carouselItemsDM[index].image!,
+                      //     carouselItemsDM[index].text!,
+                      //   ),
+                      // ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ).toList(),
         )
       ],
     );
@@ -224,18 +210,16 @@ Widget _buildDesktop(BuildContext context, List mycarousalData) {
       minWidth: kDesktopMaxWidth,
       defaultScale: false,
       child: ListView.builder(
-physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: mycarousalData.length ,
+          itemCount: mycarousalData.length,
           itemBuilder: (context, index) {
             return myCarousal(
-                  title: mycarousalData[index]["title"],
-                  description: mycarousalData[index]["description"],
-                  buttonText: mycarousalData[index]["btnTXT"],
-                  image: mycarousalData[index]["image"],
-                );
-
-
+              title: mycarousalData[index]["title"],
+              description: mycarousalData[index]["description"],
+              buttonText: mycarousalData[index]["btnTXT"],
+              image: mycarousalData[index]["image"],
+            );
           }));
 }
 
@@ -246,9 +230,9 @@ Widget _buildTablet(BuildContext context, List mycarousalData) {
       minWidth: kDesktopMaxWidth,
       defaultScale: false,
       child: ListView.builder(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: mycarousalData.length ,
+          itemCount: mycarousalData.length,
           itemBuilder: (context, index) {
             return myCarousal(
               title: mycarousalData[index]["title"],
@@ -256,8 +240,6 @@ Widget _buildTablet(BuildContext context, List mycarousalData) {
               buttonText: mycarousalData[index]["btnTXT"],
               image: mycarousalData[index]["image"],
             );
-
-
           }));
 }
 
@@ -269,9 +251,9 @@ Widget _buildMobile(BuildContext context, List mycarousalData) {
       minWidth: kDesktopMaxWidth,
       defaultScale: false,
       child: ListView.builder(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: mycarousalData.length ,
+          itemCount: mycarousalData.length,
           itemBuilder: (context, index) {
             return myCarousal(
               title: mycarousalData[index]["title"],
@@ -279,7 +261,5 @@ Widget _buildMobile(BuildContext context, List mycarousalData) {
               buttonText: mycarousalData[index]["btnTXT"],
               image: mycarousalData[index]["image"],
             );
-
-
           }));
 }

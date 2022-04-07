@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:trysell_website/constants.dart';
-import 'package:trysell_website/responsive.dart';
 import 'package:trysell_website/screen_helper.dart';
 import 'package:trysell_website/screens/home/components/carousal.dart';
 import 'package:trysell_website/screens/home/components/footer.dart';
 import 'package:trysell_website/screens/home/components/testimonial_widget.dart';
-import 'package:trysell_website/widgets/CustomText.dart';
+import 'package:trysell_website/widgets/custom_text.dart';
 
 class HomeScreenView extends StatelessWidget {
   const HomeScreenView({
@@ -159,11 +158,11 @@ class HomeScreenView extends StatelessWidget {
         const SizedBox(
           height: 30,
         ),
-        Footer(),
-        SizedBox(
+        const TestimonialWidget(),
+        const SizedBox(
           height: 50.0,
         ),
-        TestimonialWidget(),
+        const Footer(),
       ],
     );
   }
@@ -209,28 +208,25 @@ class HomeScreenView extends StatelessWidget {
           children: [
             Expanded(
               flex: 1,
-              child: Container(
-                // color: Colors.green,
-                child: Row(
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: backgroundColor,
-                      child: Icon(
-                        icon,
-                        color: iconColor,
-                      ),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    backgroundColor: backgroundColor,
+                    child: Icon(
+                      icon,
+                      color: iconColor,
                     ),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    CustomText(
-                      text: title,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    )
-                  ],
-                ),
+                  ),
+                  const SizedBox(
+                    width: 6,
+                  ),
+                  CustomText(
+                    text: title,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  )
+                ],
               ),
             ),
             Expanded(

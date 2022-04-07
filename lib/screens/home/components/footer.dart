@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:trysell_website/constants.dart';
 import 'package:trysell_website/models/footer_item.dart';
 import 'package:trysell_website/screen_helper.dart';
-import 'package:trysell_website/widgets/CustomText.dart';
+import 'package:trysell_website/widgets/custom_text.dart';
 
 final List<FooterItem> footerItems = [
   FooterItem(
@@ -67,7 +65,7 @@ Widget _buildUi(double width, BuildContext context) {
                     runSpacing: 20.0,
                     children: footerItems
                         .map(
-                          (footerItem) => Container(
+                          (footerItem) => SizedBox(
                             height: 120.0,
                             width: ScreenHelper.isMobile(context)
                                 ? constraints.maxWidth / 2.0 - 20.0

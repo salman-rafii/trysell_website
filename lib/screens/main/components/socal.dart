@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:trysell_website/widgets/CustomText.dart';
+import 'package:trysell_website/widgets/custom_text.dart';
 
 import '../../../constants.dart';
 import '../../../responsive.dart';
@@ -48,10 +48,9 @@ class _SocalState extends State<Socal> {
                 setState(() {
                   _isHover = value;
                 });
-                print(_isHover);
               },
               child: Container(
-                padding: EdgeInsets.all(4),
+                padding: const EdgeInsets.all(4),
                 child: CustomText(
                   text: "Login",
                   fontWeight: FontWeight.bold,

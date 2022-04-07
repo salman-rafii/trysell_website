@@ -7,11 +7,13 @@ import 'package:trysell_website/screen_helper.dart';
 
 class Carousel extends StatelessWidget {
   final CarouselController carouselController = CarouselController();
+
+  Carousel({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     double carouselContainerHeight = MediaQuery.of(context).size.height *
         (ScreenHelper.isMobile(context) ? .7 : .85);
-    return Container(
+    return SizedBox(
       height: carouselContainerHeight,
       width: double.infinity,
       child: Column(

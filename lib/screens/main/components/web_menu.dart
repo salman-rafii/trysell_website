@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:trysell_website/controllers/MenuController.dart';
-import 'package:trysell_website/widgets/CustomText.dart';
+import 'package:trysell_website/controllers/menu_controller.dart';
+import 'package:trysell_website/widgets/custom_text.dart';
 
 import '../../../constants.dart';
 
 class WebMenu extends StatelessWidget {
   final MenuController _controller = Get.put(MenuController());
+
+  WebMenu({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
