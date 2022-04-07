@@ -23,7 +23,7 @@ class _SocalState extends State<Socal> {
         if (!Responsive.isMobile(context))
           SvgPicture.asset(
             "assets/icons/behance-alt.svg",
-            color: kDarkBlackColor,
+            color: const Color(0xff053eff),
           ),
         if (!Responsive.isMobile(context))
           Padding(
@@ -31,13 +31,13 @@ class _SocalState extends State<Socal> {
                 const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
             child: SvgPicture.asset(
               "assets/icons/feather_dribbble.svg",
-              color: kDarkBlackColor,
+              color: const Color(0xffea4c89),
             ),
           ),
         if (!Responsive.isMobile(context))
           SvgPicture.asset(
             "assets/icons/feather_twitter.svg",
-            color: kDarkBlackColor,
+            color: const Color(0xff1DA1F2),
           ),
         const SizedBox(width: kDefaultPadding),
         Row(

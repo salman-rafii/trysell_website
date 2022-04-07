@@ -5,6 +5,7 @@ import 'package:trysell_website/responsive.dart';
 import 'package:trysell_website/screen_helper.dart';
 import 'package:trysell_website/screens/home/components/carousal.dart';
 import 'package:trysell_website/screens/home/components/footer.dart';
+import 'package:trysell_website/screens/home/components/testimonial_widget.dart';
 import 'package:trysell_website/widgets/CustomText.dart';
 
 class HomeScreenView extends StatelessWidget {
@@ -88,7 +89,7 @@ class HomeScreenView extends StatelessWidget {
             CustomText(
               text: "Our",
               color: kDarkBlackColor,
-              fontSize: 20.0,
+              fontSize: 30.0,
               fontWeight: FontWeight.w600,
             ),
             SizedBox(
@@ -97,7 +98,7 @@ class HomeScreenView extends StatelessWidget {
             CustomText(
               text: "Services",
               color: kPrimaryColor,
-              fontSize: 20.0,
+              fontSize: 30.0,
               fontWeight: FontWeight.w700,
             ),
           ],
@@ -141,7 +142,7 @@ class HomeScreenView extends StatelessWidget {
             CustomText(
               text: "What Makes us",
               color: kDarkBlackColor,
-              fontSize: 20.0,
+              fontSize: 30.0,
               fontWeight: FontWeight.w600,
             ),
             SizedBox(
@@ -150,7 +151,7 @@ class HomeScreenView extends StatelessWidget {
             CustomText(
               text: "Different",
               color: kPrimaryColor,
-              fontSize: 20.0,
+              fontSize: 30.0,
               fontWeight: FontWeight.w700,
             ),
           ],
@@ -158,7 +159,11 @@ class HomeScreenView extends StatelessWidget {
         const SizedBox(
           height: 30,
         ),
-        Footer()
+        Footer(),
+        SizedBox(
+          height: 50.0,
+        ),
+        TestimonialWidget(),
       ],
     );
   }
