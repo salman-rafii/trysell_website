@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomText extends StatefulWidget {
+  // ignore: prefer_typing_uninitialized_variables
   final text, fontSize, fontWeight, color, overflow, textAlign;
   const CustomText(
       {this.text,

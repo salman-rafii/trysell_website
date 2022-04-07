@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:trysell_website/controllers/MenuController.dart';
+import 'package:trysell_website/controllers/menu_controller.dart';
 import 'package:trysell_website/screens/home/components/home_screen_view.dart';
 import 'package:trysell_website/screens/home/components/services.dart';
 import 'package:trysell_website/screens/home/home_screen.dart';
@@ -22,32 +22,24 @@ class MainScreen extends StatelessWidget {
       drawer: SideMenu(),
       body: SingleChildScrollView(
         child: Builder(builder: (context) {
-
-          return Container(
-
-            child: Column(
-              children: [
-                Header(),
-                GetX<MenuController>(
-                  builder: (_) => _controller.selectedIndex == 0
-                      ? const HomeScreenView()
-                      : _controller.selectedIndex == 1
-                          ? Container(
-                              // width: MediaQuery.of(context).size.width,
-                              // height: MediaQuery.of(context).size.height,
-                              child: Services(),
-                            )
-                          : _controller.selectedIndex == 2
-                              ? const Text("View 3")
-                              : Container(
-                                  padding: const EdgeInsets.all(kDefaultPadding),
-                                  constraints:
-                                      const BoxConstraints(maxWidth: kMaxWidth),
-                                  child: const SafeArea(child: HomeScreen()),
-                                ),
-                )
-              ],
-            ),
+          return Column(
+            children: [
+              const Header(),
+              GetX<MenuController>(
+                builder: (_) => _controller.selectedIndex == 0
+                    ? const HomeScreenView()
+                    : _controller.selectedIndex == 1
+                        ? const Services()
+                        : _controller.selectedIndex == 2
+                            ? const Text("View 3")
+                            : Container(
+                                padding: const EdgeInsets.all(kDefaultPadding),
+                                constraints:
+                                    const BoxConstraints(maxWidth: kMaxWidth),
+                                child: const SafeArea(child: HomeScreen()),
+                              ),
+              )
+            ],
           );
         }),
       ),

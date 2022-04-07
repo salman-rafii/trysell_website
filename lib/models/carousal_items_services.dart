@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:trysell_website/constants.dart';
 
 class CarouselItemModel {
@@ -56,7 +55,7 @@ List<CarouselItemModel> carouselItemsServices = List.generate(
         ),
         Wrap(
           children: [
-            Text(
+            const Text(
               "Need a full custom website?",
               style: TextStyle(
                 color: kCaptionColor,

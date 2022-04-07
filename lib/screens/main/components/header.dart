@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:trysell_website/controllers/MenuController.dart';
+import 'package:trysell_website/controllers/menu_controller.dart';
 import 'package:trysell_website/responsive.dart';
-import 'package:sticky_headers/sticky_headers.dart';
 
 import '../../../constants.dart';
 import 'socal.dart';
 import 'web_menu.dart';
 
 class Header extends StatefulWidget {
+  const Header({Key? key}) : super(key: key);
+
   @override
   State<Header> createState() => _HeaderState();
 }
@@ -23,7 +23,7 @@ class _HeaderState extends State<Header> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: SafeArea(
         child: Column(
@@ -70,7 +70,6 @@ class _HeaderState extends State<Header> {
                   // ),
                   // if (Responsive.isDesktop(context))
                   //   const SizedBox(height: kDefaultPadding),
-
                 ],
               ),
             )

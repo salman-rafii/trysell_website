@@ -70,7 +70,6 @@ Widget myCarousal({title, description, buttonText, image}) {
                     ),
                   ),
                 ),
-
               ],
             ),
             const SizedBox(
@@ -103,16 +102,17 @@ Widget myCarousal({title, description, buttonText, image}) {
           ],
         ),
       ),
-
       Expanded(
-        child: Column(children: [
-          Image.asset(
-            "$image",
-            fit: BoxFit.contain,
-            height: 450,
-            width: 450,
-          ),
-        ],),
+        child: Column(
+          children: [
+            Image.asset(
+              "$image",
+              fit: BoxFit.contain,
+              height: 450,
+              width: 450,
+            ),
+          ],
+        ),
       )
     ],
   );

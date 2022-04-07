@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trysell_website/constants.dart';
-import 'package:trysell_website/widgets/CustomText.dart';
+import 'package:trysell_website/widgets/custom_text.dart';
 
 class CarouselItemModel {
   final Widget? text;
