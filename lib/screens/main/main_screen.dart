@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trysell_website/controllers/MenuController.dart';
 import 'package:trysell_website/screens/home/components/home_screen_view.dart';
+import 'package:trysell_website/screens/home/components/services.dart';
 import 'package:trysell_website/screens/home/home_screen.dart';
 
 import '../../constants.dart';
@@ -21,6 +22,7 @@ class MainScreen extends StatelessWidget {
       drawer: SideMenu(),
       body: SingleChildScrollView(
         child: Builder(builder: (context) {
+
           return Container(
 
             child: Column(

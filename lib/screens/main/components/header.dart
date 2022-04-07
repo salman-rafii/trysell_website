@@ -25,13 +25,12 @@ class _HeaderState extends State<Header> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: Colors.white,
       child: SafeArea(
         child: Column(
           children: [
             Container(
               constraints: const BoxConstraints(maxWidth: kMaxWidth),
-              padding: const EdgeInsets.all(kDefaultPadding),
+              padding: const EdgeInsets.only(top: 30.0),
               child: Column(
                 children: [
                   Row(
@@ -57,7 +56,9 @@ class _HeaderState extends State<Header> {
                       const Socal(),
                     ],
                   ),
+
                   // const SizedBox(height: kDefaultPadding * 2),
+
                   // GetX<MenuController>(
                   //   builder: (_) => _controller.selectedIndex == 0
                   //       ? welcomeToView(title: "Welcome to Trysell Solutions")
@@ -67,8 +68,9 @@ class _HeaderState extends State<Header> {
                   //               ? welcomeToView(title: "Contact Us")
                   //               : welcomeToView(title: "Welcome to Our Blog"),
                   // ),
-                  if (Responsive.isDesktop(context))
-                    const SizedBox(height: kDefaultPadding),
+                  // if (Responsive.isDesktop(context))
+                  //   const SizedBox(height: kDefaultPadding),
+
                 ],
               ),
             )
@@ -78,51 +80,52 @@ class _HeaderState extends State<Header> {
     );
   }
 
-  Column welcomeToView({title}) {
-    return Column(
-      children: [
-        Text(
-          "$title",
-          style: const TextStyle(
-            fontSize: 32,
-            color: kDarkBlackColor,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: kDefaultPadding),
-          child: Text(
-            "Stay updated with the newest design and development stories, case studies, \nand insights shared by DesignDK Team.",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: kDarkBlackColor,
-              fontFamily: 'Raleway',
-              height: 1.5,
-            ),
-          ),
-        ),
-        FittedBox(
-          child: TextButton(
-            onPressed: () {},
-            child: Row(
-              children: const [
-                Text(
-                  "Learn More",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: kDarkBlackColor,
-                  ),
-                ),
-                SizedBox(width: kDefaultPadding / 2),
-                Icon(
-                  Icons.arrow_forward,
-                  color: kDarkBlackColor,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
+  // Column welcomeToView({title}) {
+  //   return Column(
+  //     children: [
+  //       Text(
+  //         "$title",
+  //         style: const TextStyle(
+  //           fontSize: 32,
+  //           color: kDarkBlackColor,
+  //           fontWeight: FontWeight.bold,
+  //         ),
+  //       ),
+  //       const Padding(
+  //         padding: EdgeInsets.symmetric(vertical: kDefaultPadding),
+  //         child: Text(
+  //           "Stay updated with the newest design and development stories, case studies, \nand insights shared by DesignDK Team.",
+  //           textAlign: TextAlign.center,
+  //           style: TextStyle(
+  //             color: kDarkBlackColor,
+  //             fontFamily: 'Raleway',
+  //             height: 1.5,
+  //           ),
+  //         ),
+  //       ),
+  //       FittedBox(
+  //         child: TextButton(
+  //           onPressed: () {},
+  //           child: Row(
+  //             children: const [
+  //               Text(
+  //                 "Learn More",
+  //                 style: TextStyle(
+  //                   fontWeight: FontWeight.bold,
+  //                   color: kDarkBlackColor,
+  //                 ),
+  //               ),
+  //               SizedBox(width: kDefaultPadding / 2),
+  //               Icon(
+  //                 Icons.arrow_forward,
+  //                 color: kDarkBlackColor,
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
+
 }
