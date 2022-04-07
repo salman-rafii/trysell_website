@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           headline5: TextStyle(color: kDarkBlackColor),
         ),
       ),
-      home: MainScreen(),
+      home: const MainScreen(),
     );
   }
 }
