@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trysell_website/constants.dart';
-import 'package:trysell_website/models/Blog.dart';
+import 'package:trysell_website/models/blog_data.dart';
 import 'package:trysell_website/responsive.dart';
 
 import 'components/blog_post.dart';
@@ -27,12 +27,13 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
-        if (!Responsive.isMobile(context)) SizedBox(width: kDefaultPadding),
+        if (!Responsive.isMobile(context))
+          const SizedBox(width: kDefaultPadding),
         // Sidebar
         if (!Responsive.isMobile(context))
           Expanded(
             child: Column(
-              children: [
+              children: const [
                 Search(),
                 SizedBox(height: kDefaultPadding),
                 Categories(),

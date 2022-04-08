@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:trysell_website/models/Blog.dart';
+import 'package:trysell_website/models/blog_data.dart';
 import 'package:trysell_website/responsive.dart';
 
 import '../../../constants.dart';
@@ -38,13 +38,13 @@ class BlogPostCard extends StatelessWidget {
                   children: [
                     Text(
                       "Design".toUpperCase(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: kDarkBlackColor,
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(width: kDefaultPadding),
+                    const SizedBox(width: kDefaultPadding),
                     Text(
                       blog.date!,
                       style: Theme.of(context).textTheme.caption,
@@ -70,27 +70,28 @@ class BlogPostCard extends StatelessWidget {
                 Text(
                   blog.description!,
                   maxLines: 4,
-                  style: TextStyle(height: 1.5),
+                  style: const TextStyle(height: 1.5),
                 ),
-                SizedBox(height: kDefaultPadding),
+                const SizedBox(height: kDefaultPadding),
                 Row(
                   children: [
                     TextButton(
                       onPressed: () {},
                       child: Container(
-                        padding: EdgeInsets.only(bottom: kDefaultPadding / 4),
-                        decoration: BoxDecoration(
+                        padding:
+                            const EdgeInsets.only(bottom: kDefaultPadding / 4),
+                        decoration: const BoxDecoration(
                           border: Border(
                             bottom: BorderSide(color: kPrimaryColor, width: 3),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           "Read More",
                           style: TextStyle(color: kDarkBlackColor),
                         ),
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     IconButton(
                       icon: SvgPicture.asset(
                           "assets/icons/feather_thumbs-up.svg"),

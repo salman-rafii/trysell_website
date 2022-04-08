@@ -15,8 +15,8 @@ class SidebarContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(kDefaultPadding),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(kDefaultPadding),
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(
           Radius.circular(kDefaultPadding / 4),
@@ -27,12 +27,12 @@ class SidebarContainer extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               color: kDarkBlackColor,
               fontWeight: FontWeight.w600,
             ),
           ),
-          SizedBox(height: kDefaultPadding / 2), //10
+          const SizedBox(height: kDefaultPadding / 2), //10
           child,
         ],
       ),

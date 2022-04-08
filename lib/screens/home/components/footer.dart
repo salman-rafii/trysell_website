@@ -1,33 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:trysell_website/constants.dart';
 import 'package:trysell_website/models/footer_item.dart';
-import 'package:trysell_website/screen_helper.dart';
-import 'package:trysell_website/widgets/CustomText.dart';
+import 'package:trysell_website/helpers/screen_helper.dart';
+import 'package:trysell_website/widgets/custom_text.dart';
 
 final List<FooterItem> footerItems = [
   FooterItem(
-    iconPath: "assets/mappin.png",
+    iconPath: "assets/images/mappin.png",
     title: "ADDRESS",
     text1: "999 Carter Street",
     text2: "Sailor Springs, IL 64234",
   ),
   FooterItem(
-    iconPath: "assets/phone.png",
+    iconPath: "assets/images/phone.png",
     title: "PHONE",
     text1: "+1 618-689-9604",
     text2: "+1 781-689-9632",
   ),
   FooterItem(
-    iconPath: "assets/email.png",
+    iconPath: "assets/images/email.png",
     title: "EMAIL",
     text1: "hello@example.com",
     text2: "info@flutterpanda.com",
   ),
   FooterItem(
-    iconPath: "assets/whatsapp.png",
+    iconPath: "assets/images/whatsapp.png",
     title: "WHATSAPP",
     text1: "+234 901-134-0095",
     text2: "+234 901-134-0095",
@@ -35,14 +33,14 @@ final List<FooterItem> footerItems = [
 ];
 
 class Footer extends StatelessWidget {
+  const Footer({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ScreenHelper(
-        desktop: _buildUi(kDesktopMaxWidth, context),
-        tablet: _buildUi(kTabletMaxWidth, context),
-        mobile: _buildUi(getMobileMaxWidth(context), context),
-      ),
+    return ScreenHelper(
+      desktop: _buildUi(kDesktopMaxWidth, context),
+      tablet: _buildUi(kTabletMaxWidth, context),
+      mobile: _buildUi(getMobileMaxWidth(context), context),
     );
   }
 }
@@ -61,64 +59,63 @@ Widget _buildUi(double width, BuildContext context) {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 50.0),
+                  padding: const EdgeInsets.symmetric(vertical: 50.0),
                   child: Wrap(
                     spacing: 20.0,
                     runSpacing: 20.0,
                     children: footerItems
                         .map(
-                          (footerItem) => Container(
+                          (footerItem) => SizedBox(
                             height: 120.0,
                             width: ScreenHelper.isMobile(context)
                                 ? constraints.maxWidth / 2.0 - 20.0
                                 : constraints.maxWidth / 4.0 - 20.0,
-                            child: Container(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Image.asset(
+                                      footerItem.iconPath!,
+                                      width: 25.0,
+                                      color: Colors.white,
+                                    ),
+                                    const SizedBox(
+                                      width: 15.0,
+                                    ),
+                                    CustomText(
+                                      text: footerItem.title!,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 15.0,
+                                ),
+                                RichText(
+                                  textAlign: TextAlign.start,
+                                  text: TextSpan(
                                     children: [
-                                      // Image.asset(
-                                      //   footerItem.iconPath!,
-                                      //   width: 25.0,
-                                      // ),
-                                      SizedBox(
-                                        width: 15.0,
+                                      TextSpan(
+                                        text: "${footerItem.text1}\n",
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          height: 1.8,
+                                        ),
                                       ),
-                                      CustomText(
-                                        text: footerItem.title!,
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.white,
-                                      ),
+                                      TextSpan(
+                                        text: "${footerItem.text2}\n",
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      )
                                     ],
                                   ),
-                                  SizedBox(
-                                    height: 15.0,
-                                  ),
-                                  RichText(
-                                    textAlign: TextAlign.start,
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: "${footerItem.text1}\n",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            height: 1.8,
-                                          ),
-                                        ),
-                                        TextSpan(
-                                          text: "${footerItem.text2}\n",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
+                                )
+                              ],
                             ),
                           ),
                         )
@@ -161,7 +158,7 @@ Widget _buildUi(double width, BuildContext context) {
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: const Text(
                             "|",
                             style: TextStyle(

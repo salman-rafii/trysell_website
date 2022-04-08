@@ -19,7 +19,7 @@ class RecentPosts extends StatelessWidget {
             title: "Our “Secret” Formula to Online Workshops",
             press: () {},
           ),
-          SizedBox(height: kDefaultPadding),
+          const SizedBox(height: kDefaultPadding),
           RecentPostCard(
             image: "assets/images/recent_2.png",
             title: "Digital Product Innovations from Warsaw with Love",
@@ -54,13 +54,13 @@ class RecentPostCard extends StatelessWidget {
               flex: 2,
               child: Image.asset(image),
             ),
-            SizedBox(width: kDefaultPadding),
+            const SizedBox(width: kDefaultPadding),
             Expanded(
               flex: 5,
               child: Text(
                 title,
                 maxLines: 2,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: "Raleway",
                   color: kDarkBlackColor,
                   fontWeight: FontWeight.bold,
