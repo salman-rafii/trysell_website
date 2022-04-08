@@ -2,8 +2,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:trysell_website/models/blog_data.dart';
 import 'package:trysell_website/responsive.dart';
+import 'package:trysell_website/screens/home/components/read_blog.dart';
 import 'package:trysell_website/widgets/hover_image.dart';
 
 import '../../../constants.dart';
@@ -86,7 +88,12 @@ Row(children: [
           Row(
             children: [
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  // print("printed on tap");
+                  //     (index) => Navigator.push(context, MaterialPageRoute(builder: (context)=> ReadBlog(blog: blog)));
+                  // print("printed on tap After push");
+                  Get.to(ReadBlog(blog: blog));
+                },
                 child: Container(
                   padding:
                   const EdgeInsets.only(bottom: kDefaultPadding / 4),

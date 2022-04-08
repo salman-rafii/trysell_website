@@ -1,9 +1,13 @@
 import 'package:get/get.dart';
+import 'package:trysell_website/models/blog_data.dart';
 import 'package:trysell_website/screens/home/components/login_screen.dart';
+import 'package:trysell_website/screens/home/components/read_blog.dart';
 import 'package:trysell_website/screens/home/components/signup_screen.dart';
 import 'package:trysell_website/screens/main/main_screen.dart';
 
 class Routes {
+
+
   static final routes = [
     GetPage(
       name: "/",
@@ -16,6 +20,7 @@ class Routes {
     GetPage(
       name: "/signup",
       page: () => const SignUpScreen(),
-    )
+    ),
+
   ];
 }
