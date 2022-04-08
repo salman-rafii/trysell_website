@@ -1,10 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:trysell_website/constants.dart';
 import 'package:trysell_website/widgets/custom_image_widget.dart';
 import 'package:trysell_website/widgets/custom_text.dart';
 import 'package:trysell_website/widgets/my_custom_button.dart';
 import 'package:trysell_website/widgets/my_custom_text_field.dart';
+import 'package:trysell_website/widgets/size_config.dart';
 import 'package:trysell_website/widgets/wsizedbox.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -17,43 +20,11 @@ class SignUpScreen extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              color: const Color.fromARGB(255, 40, 42, 57),
+              color: Colors.white,
               child: Padding(
                 padding: const EdgeInsets.all(50),
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        Container(
-                          decoration: const BoxDecoration(
-                            color: Colors.blue,
-                            shape: BoxShape.circle,
-                          ),
-                          height: 40,
-                          width: 40,
-                        ),
-                        CustomText(
-                          text: '  Anywhere App.',
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.normal,
-                        ),
-                        WSizedBox(wval: 0.1, hval: 0),
-                        CustomText(
-                          text: 'Home',
-                          color: Colors.grey,
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal,
-                        ),
-                        WSizedBox(wval: 0.1, hval: 0),
-                        CustomText(
-                          text: 'Join',
-                          color: Colors.grey,
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ],
-                    ),
                     WSizedBox(wval: 0, hval: 0.2),
                     Row(
                       children: [
@@ -73,13 +44,13 @@ class SignUpScreen extends StatelessWidget {
                               children: [
                                 CustomText(
                                   text: 'Create new account',
-                                  color: Colors.white,
+                                  color: kDarkBlackColor,
                                   fontSize: 45,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 Container(
                                   decoration: const BoxDecoration(
-                                    color: Colors.blue,
+                                    color: kPrimaryColor,
                                     shape: BoxShape.circle,
                                   ),
                                   height: 10,
@@ -89,18 +60,23 @@ class SignUpScreen extends StatelessWidget {
                             ),
                             WSizedBox(wval: 0, hval: 0.03),
                             Row(
-                              children: const [
+                              children: [
                                 CustomText(
                                   text: 'Already A member ?',
                                   color: Colors.grey,
                                   fontSize: 18,
                                   fontWeight: FontWeight.normal,
                                 ),
-                                CustomText(
-                                  text: ' Log in',
-                                  color: Colors.blue,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.normal,
+                                GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed("/login");
+                                  },
+                                  child: CustomText(
+                                    text: ' Log in',
+                                    color: kPrimaryColor,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                                 ),
                               ],
                             ),
@@ -109,26 +85,24 @@ class SignUpScreen extends StatelessWidget {
                               children: [
                                 MyCustomTextField(
                                     borderradius: 20,
-                                    bordercolor:
-                                        Color.fromARGB(255, 50, 54, 69),
+                                    bordercolor: Color(0xffe3e3e3),
                                     widh: 0.15,
                                     height: 0.05,
                                     icon: Icons.credit_card,
                                     iconColor: Colors.grey,
-                                    hinttext: 'first name',
+                                    hinttext: 'First Name',
                                     hintColor: Colors.grey,
                                     fontsize: 15,
                                     obscureText: false),
                                 WSizedBox(wval: 0.02, hval: 0),
                                 MyCustomTextField(
                                     borderradius: 20,
-                                    bordercolor:
-                                        Color.fromARGB(255, 50, 54, 69),
+                                    bordercolor: Color(0xffe3e3e3),
                                     widh: 0.15,
                                     height: 0.05,
                                     icon: Icons.credit_card,
                                     iconColor: Colors.grey,
-                                    hinttext: 'last name',
+                                    hinttext: 'Last Name',
                                     hintColor: Colors.grey,
                                     fontsize: 15,
                                     obscureText: false),
@@ -137,55 +111,38 @@ class SignUpScreen extends StatelessWidget {
                             WSizedBox(wval: 0, hval: 0.02),
                             const MyCustomTextField(
                                 borderradius: 20,
-                                bordercolor: Color.fromARGB(255, 50, 54, 69),
+                                bordercolor: Color(0xffe3e3e3),
                                 widh: 0.32,
                                 height: 0.05,
                                 icon: Icons.mail,
                                 iconColor: Colors.grey,
-                                hinttext: 'email',
+                                hinttext: 'Email',
                                 hintColor: Colors.grey,
                                 fontsize: 15,
                                 obscureText: false),
                             WSizedBox(wval: 0, hval: 0.02),
                             const MyCustomTextField(
                                 borderradius: 20,
-                                bordercolor: Color.fromARGB(255, 50, 54, 69),
+                                bordercolor: Color(0xffe3e3e3),
                                 widh: 0.32,
                                 height: 0.05,
                                 icon: Icons.lock,
                                 iconColor: Colors.grey,
-                                hinttext: 'password',
+                                hinttext: 'Password',
                                 hintColor: Colors.grey,
                                 fontsize: 15,
                                 obscureText: true),
                             WSizedBox(wval: 0, hval: 0.04),
-                            Row(
-                              children: [
-                                MyCustomButton(
-                                  buttontext: 'change method',
-                                  width: 0.15,
-                                  height: 0.05,
-                                  bordercolor: Color.fromARGB(255, 84, 91, 105),
-                                  borderradius: 25,
-                                  fontsize: 12,
-                                  fontweight: FontWeight.bold,
-                                  fontcolor: Colors.white,
-                                  onPressed: () {},
-                                ),
-                                WSizedBox(wval: 0.02, hval: 0),
-                                MyCustomButton(
-                                  buttontext: 'create account',
-                                  width: 0.15,
-                                  height: 0.05,
-                                  bordercolor:
-                                      const Color.fromARGB(255, 29, 144, 244),
-                                  borderradius: 25,
-                                  fontsize: 12,
-                                  fontweight: FontWeight.bold,
-                                  fontcolor: Colors.white,
-                                  onPressed: () {},
-                                ),
-                              ],
+                            MyCustomButton(
+                              buttontext: 'Register',
+                              width: 0.32,
+                              height: 0.05,
+                              bordercolor: kPrimaryColor,
+                              borderradius: 25,
+                              fontsize: 12,
+                              fontweight: FontWeight.bold,
+                              fontcolor: Colors.white,
+                              onPressed: () {},
                             ),
                           ],
                         ),
@@ -196,11 +153,14 @@ class SignUpScreen extends StatelessWidget {
               ),
             ),
           ),
-          const CustomImageWidget(
-            height: 1,
-            width: 0.5,
-            imgpath: 'assets/images/bg.png',
-          ),
+          Container(
+              padding: EdgeInsets.only(right: 20),
+              color: Colors.white,
+              child: Image.asset(
+                "assets/images/sign_up.png",
+                height: MediaQuery.of(context).size.height,
+                width: MySize.size700,
+              ))
         ],
       ),
     );
