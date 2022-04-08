@@ -79,6 +79,7 @@ class MySize {
   static double? size300;
   static double? size350;
   static double? size400;
+  static double? size450;
   static double? size500;
   static double? size600;
   static double? size700;
@@ -179,6 +180,7 @@ class MySize {
     size300 = scaleFactorHeight * 300;
     size350 = scaleFactorHeight * 350;
     size400 = scaleFactorHeight * 400;
+    size450 = scaleFactorHeight * 450;
 
     size500 = scaleFactorHeight * 500;
     size600 = scaleFactorHeight * 600;
