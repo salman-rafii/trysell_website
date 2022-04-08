@@ -32,9 +32,15 @@ final List<DesignProcess> designProcesses = [
   ),
 ];
 
-class WhatWeDo extends StatelessWidget {
+class WhatWeDo extends StatefulWidget {
   const WhatWeDo({Key? key}) : super(key: key);
 
+  @override
+  State<WhatWeDo> createState() => _WhatWeDoState();
+}
+
+class _WhatWeDoState extends State<WhatWeDo> {
+  bool _isHover = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -76,50 +82,58 @@ class WhatWeDo extends StatelessWidget {
                       : MediaQuery.of(context).size.aspectRatio * 1.5,
                 ),
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: const Color(0xffe0e0e0),
+                  return InkWell(
+                    onTap: () {},
+                    onHover: (value) {
+                      setState(() {
+                        _isHover = value;
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: const Color(0xffe0e0e0),
+                        ),
                       ),
-                    ),
-                    // color: Colors.red,
-                    padding: const EdgeInsets.only(
-                      top: 30,
-                      left: 30,
-                      right: 30,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image.asset(
-                              designProcesses[index].imagePath!,
-                              width: 40.0,
-                              color: kPrimaryColor,
-                            ),
-                            const SizedBox(
-                              width: 15.0,
-                            ),
-                            CustomText(
-                              text: designProcesses[index].title!,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w700,
-                              color: kDarkBlackColor,
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20.0,
-                        ),
-                        CustomText(
-                          text: designProcesses[index].subtitle!,
-                          color: kCaptionColor,
-                          fontSize: 14.0,
-                        )
-                      ],
+                      // color: Colors.red,
+                      padding: const EdgeInsets.only(
+                        top: 30,
+                        left: 30,
+                        right: 30,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Image.asset(
+                                designProcesses[index].imagePath!,
+                                width: 40.0,
+                                color: kPrimaryColor,
+                              ),
+                              const SizedBox(
+                                width: 15.0,
+                              ),
+                              CustomText(
+                                text: designProcesses[index].title!,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w700,
+                                color: kDarkBlackColor,
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20.0,
+                          ),
+                          CustomText(
+                            text: designProcesses[index].subtitle!,
+                            color: kCaptionColor,
+                            fontSize: 14.0,
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },
