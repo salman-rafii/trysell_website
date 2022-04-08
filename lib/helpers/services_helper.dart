@@ -51,54 +51,58 @@ Row middleDivider() {
 }
 
 Widget servicesCard({title, description, icon, backgroundColor, iconColor}) {
-  return Card(
-    elevation: 5,
-    child: Column(
-      children: [
-        Expanded(
-          flex: 1,
-          child: Container(
-            margin: const EdgeInsets.only(left: 10, top: 10),
-            // padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
-            child: Row(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CircleAvatar(
-                  backgroundColor: backgroundColor,
-                  // radius: 26,
-                  child: Icon(
-                    icon,
-                    color: iconColor,
+  return InkWell(
+    onTap: () {},
+    onHover: (value) {},
+    child: Card(
+      elevation: 5,
+      child: Column(
+        children: [
+          Expanded(
+            flex: 1,
+            child: Container(
+              margin: const EdgeInsets.only(left: 10, top: 10),
+              // padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
+              child: Row(
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CircleAvatar(
+                    backgroundColor: backgroundColor,
+                    // radius: 26,
+                    child: Icon(
+                      icon,
+                      color: iconColor,
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                CustomText(
-                  text: title,
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                )
-              ],
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  CustomText(
+                    text: title,
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  )
+                ],
+              ),
             ),
           ),
-        ),
-        Divider(
-          color: Colors.grey[100],
-        ),
-        Expanded(
-          flex: 2,
-          child: Container(
-            // color: Colors.red,
-            padding: const EdgeInsets.only(left: 10, right: 10),
-            child: CustomText(
-              text: description,
-              textAlign: TextAlign.justify,
-            ),
+          Divider(
+            color: Colors.grey[100],
           ),
-        )
-      ],
+          Expanded(
+            flex: 2,
+            child: Container(
+              // color: Colors.red,
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: CustomText(
+                text: description,
+                textAlign: TextAlign.justify,
+              ),
+            ),
+          )
+        ],
+      ),
     ),
   );
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trysell_website/screens/main/main_screen.dart';
+import 'package:trysell_website/screens/routes/routes.dart';
 
 import 'constants.dart';
 
@@ -30,6 +31,8 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: const MainScreen(),
+      initialRoute: "/",
+      getPages: Routes.routes,
     );
   }
 }

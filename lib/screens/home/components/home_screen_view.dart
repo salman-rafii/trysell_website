@@ -3,6 +3,7 @@ import 'package:trysell_website/constants.dart';
 import 'package:trysell_website/helpers/screen_helper.dart';
 import 'package:trysell_website/helpers/services_helper.dart';
 import 'package:trysell_website/models/services_list.dart';
+import 'package:trysell_website/screens/home/components/about_us.dart';
 import 'package:trysell_website/screens/home/components/carousal.dart';
 import 'package:trysell_website/screens/home/components/cv_section.dart';
 import 'package:trysell_website/screens/home/components/footer.dart';
@@ -37,6 +38,25 @@ class _HomeScreenViewState extends State<HomeScreenView> {
           // height: MediaQuery.of(context).size.height,
           child: Carousel(),
         ),
+        SizedBox(
+          height: MySize.size80,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const CustomText(
+              text: "About Us",
+              color: kDarkBlackColor,
+              fontSize: 30.0,
+              fontWeight: FontWeight.w600,
+            ),
+            SizedBox(
+              width: MySize.size4,
+            ),
+          ],
+        ),
+        middleDivider(),
+        const AboutUs(),
         SizedBox(
           height: MySize.size80,
         ),
