@@ -2,7 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:trysell_website/constants.dart';
-import 'package:trysell_website/models/carousal_items.dart';
+import 'package:trysell_website/helpers/home_helper.dart';
+
 import 'package:trysell_website/helpers/screen_helper.dart';
 
 class Carousel extends StatelessWidget {
@@ -30,7 +31,7 @@ class Carousel extends StatelessWidget {
                 height: carouselContainerHeight,
               ),
               items: List.generate(
-                carouselItemsServices.length,
+                1,
                 (index) => Builder(
                   builder: (BuildContext context) {
                     return Container(
@@ -41,18 +42,33 @@ class Carousel extends StatelessWidget {
                         // Responsive views
                         desktop: _buildDesktop(
                           context,
-                          carouselItemsServices[index].text!,
-                          carouselItemsServices[index].image!,
+                          homeBannerView(),
+                          Image.asset(
+                            "assets/images/home_banner.png",
+                            fit: BoxFit.contain,
+                            height: 450,
+                            width: 450,
+                          ),
                         ),
                         tablet: _buildTablet(
                           context,
-                          carouselItemsServices[index].text!,
-                          carouselItemsServices[index].image!,
+                          homeBannerView(),
+                          Image.asset(
+                            "assets/images/home_banner.png",
+                            fit: BoxFit.contain,
+                            height: 450,
+                            width: 450,
+                          ),
                         ),
                         mobile: _buildMobile(
                           context,
-                          carouselItemsServices[index].text!,
-                          carouselItemsServices[index].image!,
+                          homeBannerView(),
+                          Image.asset(
+                            "assets/images/home_banner.png",
+                            fit: BoxFit.contain,
+                            height: 450,
+                            width: 450,
+                          ),
                         ),
                       ),
                     );
