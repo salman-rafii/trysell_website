@@ -23,7 +23,7 @@ class SideMenu extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: kDefaultPadding * 3.5),
-                  child: SvgPicture.asset("assets/icons/logo.svg"),
+                  child: Image.asset("assets/images/Trysell.png"),
                 ),
               ),
               ...List.generate(

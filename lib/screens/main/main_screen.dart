@@ -4,7 +4,7 @@ import 'package:trysell_website/controllers/menu_controller.dart';
 import 'package:trysell_website/screens/home/components/contact_us.dart';
 import 'package:trysell_website/screens/home/components/home_screen_view.dart';
 import 'package:trysell_website/screens/home/components/services_view.dart';
-import 'package:trysell_website/screens/home/home_screen.dart';
+import 'package:trysell_website/screens/home/blog_list_view.dart';
 import 'package:trysell_website/widgets/size_config.dart';
 
 import '../../constants.dart';
@@ -47,9 +47,9 @@ class _MainScreenState extends State<MainScreen> {
                                 padding: const EdgeInsets.all(kDefaultPadding),
                                 constraints:
                                     const BoxConstraints(maxWidth: kMaxWidth),
-                                child: const SafeArea(child: HomeScreen()),
+                                child: const SafeArea(child: BlogListView()),
                               ),
-              )
+              ),
             ],
           );
         }),

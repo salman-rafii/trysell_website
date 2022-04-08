@@ -39,16 +39,23 @@ class _HeaderState extends State<Header> {
                         IconButton(
                           icon: const Icon(
                             Icons.menu,
-                            color: Colors.white,
+                            color: kDarkBlackColor,
                           ),
                           onPressed: () {
                             _controller.openOrCloseDrawer();
                           },
                         ),
-                      Image.asset(
-                        "assets/images/Trysell.png",
-                        width: 200,
-                      ),
+                      if (Responsive.isDesktop(context))
+                        InkWell(
+                          onTap: () {
+                            _controller.setMenuIndex(0);
+                          },
+                          child: Image.asset(
+                            "assets/images/Trysell.png",
+                            width: 200,
+                          ),
+                        ),
+
                       const Spacer(),
                       if (Responsive.isDesktop(context)) WebMenu(),
                       const Spacer(),
