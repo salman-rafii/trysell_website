@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:trysell_website/widgets/custom_text.dart';
 
 import '../../../constants.dart';
@@ -49,13 +50,18 @@ class _SocalState extends State<Socal> {
                   _isHover = value;
                 });
               },
-              child: Container(
-                padding: const EdgeInsets.all(4),
-                child: CustomText(
-                  text: "Login",
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: _isHover == true ? Colors.blue : kDarkBlackColor,
+              child: GestureDetector(
+                onTap: () {
+                  Get.toNamed("/login");
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(4),
+                  child: CustomText(
+                    text: "Login",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: _isHover == true ? Colors.blue : kDarkBlackColor,
+                  ),
                 ),
               ),
             ),

@@ -11,24 +11,28 @@ final List<DesignProcess> designProcesses = [
     imagePath: "assets/images/design.png",
     subtitle:
         "A full stack allround designer thay may or may not include a guide for specific creative",
+    ishover: false,
   ),
   DesignProcess(
     title: "DEVELOP",
     imagePath: "assets/images/develop.png",
     subtitle:
         "A full stack allround developer thay may or may not include a guide for specific creative",
+    ishover: false,
   ),
   DesignProcess(
     title: "WRITE",
     imagePath: "assets/images/write.png",
     subtitle:
         "A full stack allround writer thay may or may not include a guide for specific creative",
+    ishover: false,
   ),
   DesignProcess(
     title: "PROMOTE",
     imagePath: "assets/images/promote.png",
     subtitle:
         "A full stack allround promoter thay may or may not include a guide for specific creative",
+    ishover: false,
   ),
 ];
 
@@ -40,7 +44,6 @@ class WhatWeDo extends StatefulWidget {
 }
 
 class _WhatWeDoState extends State<WhatWeDo> {
-  bool _isHover = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -86,11 +89,14 @@ class _WhatWeDoState extends State<WhatWeDo> {
                     onTap: () {},
                     onHover: (value) {
                       setState(() {
-                        _isHover = value;
+                        designProcesses[index].ishover = value;
                       });
                     },
                     child: Container(
                       decoration: BoxDecoration(
+                        color: designProcesses[index].ishover == true
+                            ? kPrimaryColor
+                            : Colors.transparent,
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
                           color: const Color(0xffe0e0e0),
@@ -111,7 +117,9 @@ class _WhatWeDoState extends State<WhatWeDo> {
                               Image.asset(
                                 designProcesses[index].imagePath!,
                                 width: 40.0,
-                                color: kPrimaryColor,
+                                color: designProcesses[index].ishover == true
+                                    ? Colors.white
+                                    : kPrimaryColor,
                               ),
                               const SizedBox(
                                 width: 15.0,
@@ -120,7 +128,9 @@ class _WhatWeDoState extends State<WhatWeDo> {
                                 text: designProcesses[index].title!,
                                 fontSize: 20.0,
                                 fontWeight: FontWeight.w700,
-                                color: kDarkBlackColor,
+                                color: designProcesses[index].ishover == true
+                                    ? Colors.white
+                                    : kDarkBlackColor,
                               )
                             ],
                           ),
@@ -129,7 +139,9 @@ class _WhatWeDoState extends State<WhatWeDo> {
                           ),
                           CustomText(
                             text: designProcesses[index].subtitle!,
-                            color: kCaptionColor,
+                            color: designProcesses[index].ishover == true
+                                ? Colors.white
+                                : kCaptionColor,
                             fontSize: 14.0,
                           )
                         ],
