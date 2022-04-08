@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:trysell_website/controllers/MenuController.dart';
 import 'package:trysell_website/responsive.dart';
-import 'package:sticky_headers/sticky_headers.dart';
 
 import '../../../constants.dart';
 import 'socal.dart';
@@ -57,16 +56,16 @@ class _HeaderState extends State<Header> {
                       const Socal(),
                     ],
                   ),
-                  // const SizedBox(height: kDefaultPadding * 2),
-                  // GetX<MenuController>(
-                  //   builder: (_) => _controller.selectedIndex == 0
-                  //       ? welcomeToView(title: "Welcome to Trysell Solutions")
-                  //       : _controller.selectedIndex == 1
-                  //           ? welcomeToView(title: "Welcome to Our Services")
-                  //           : _controller.selectedIndex == 2
-                  //               ? welcomeToView(title: "Contact Us")
-                  //               : welcomeToView(title: "Welcome to Our Blog"),
-                  // ),
+                  const SizedBox(height: kDefaultPadding * 2),
+                  GetX<MenuController>(
+                    builder: (_) => _controller.selectedIndex == 0
+                        ? welcomeToView(title: "Welcome to Trysell Solutions")
+                        : _controller.selectedIndex == 1
+                            ? welcomeToView(title: "Welcome to Our Services")
+                            : _controller.selectedIndex == 2
+                                ? welcomeToView(title: "Contact Us")
+                                : welcomeToView(title: "Welcome to Our Blog"),
+                  ),
                   if (Responsive.isDesktop(context))
                     const SizedBox(height: kDefaultPadding),
                 ],

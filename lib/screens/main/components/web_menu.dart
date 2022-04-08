@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trysell_website/controllers/MenuController.dart';
+import 'package:trysell_website/widgets/CustomText.dart';
 
 import '../../../constants.dart';
 
@@ -70,12 +71,10 @@ class _WebMenuItemState extends State<WebMenuItem> {
             bottom: BorderSide(color: _borderColor(), width: 3),
           ),
         ),
-        child: Text(
-          widget.text,
-          style: TextStyle(
-            color: kDarkBlackColor,
-            fontWeight: widget.isActive ? FontWeight.w600 : FontWeight.normal,
-          ),
+        child: CustomText(
+          text: widget.text,
+          color: kDarkBlackColor,
+          fontWeight: widget.isActive ? FontWeight.w600 : FontWeight.normal,
         ),
       ),
     );
