@@ -30,9 +30,9 @@ class _BlogListViewState extends State<BlogListView> {
     return Column(
       children: [
         _buildDesktop(context),
-        SizedBox(
-          height: MySize.size80,
-        ),
+        // SizedBox(
+        //   height: MySize.size80,
+        // ),
         const Footer()
       ],
     );

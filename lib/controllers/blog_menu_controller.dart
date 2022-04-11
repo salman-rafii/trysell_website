@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 
-class MenuController extends GetxController {
+class BlogMenuController extends GetxController {
   final RxInt _selectedIndex = 0.obs;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -25,5 +25,7 @@ class MenuController extends GetxController {
 
   void setMenuIndex(int index) {
     _selectedIndex.value = index;
+
+    print(_selectedIndex);
   }
 }

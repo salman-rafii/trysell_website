@@ -69,7 +69,7 @@ class SignUpScreen extends StatelessWidget {
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    Get.toNamed("/login");
+                                    Get.back();
                                   },
                                   child: CustomText(
                                     text: ' Log in',
