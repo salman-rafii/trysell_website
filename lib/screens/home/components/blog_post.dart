@@ -59,12 +59,18 @@ class _BlogPostCardState extends State<BlogPostCard> {
                     children: [
                       Row(
                         children: [
-                          SelectableText(
-                            widget.blog.category!.toUpperCase(),
-                            style: const TextStyle(
-                              color: kDarkBlackColor,
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
+                          Container(
+                            padding: const EdgeInsets.all(3),
+                            decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: SelectableText(
+                              widget.blog.category!.toUpperCase(),
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                           const SizedBox(width: kDefaultPadding),

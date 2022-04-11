@@ -3,8 +3,8 @@ import 'package:get/state_manager.dart';
 
 class BlogMenuController extends GetxController {
   final RxInt _selectedIndex = 0.obs;
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
+  // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _abcKey = GlobalKey<ScaffoldState>();
   int get selectedIndex => _selectedIndex.value;
   List<String> get menuItems => [
         "Home",
@@ -13,13 +13,13 @@ class BlogMenuController extends GetxController {
         "Blog",
       ];
 
-  GlobalKey<ScaffoldState> get scaffoldkey => _scaffoldKey;
+  GlobalKey<ScaffoldState> get scaffoldkey => _abcKey;
 
   void openOrCloseDrawer() {
-    if (_scaffoldKey.currentState!.isDrawerOpen) {
-      _scaffoldKey.currentState!.openEndDrawer();
+    if (_abcKey.currentState!.isDrawerOpen) {
+      _abcKey.currentState!.openEndDrawer();
     } else {
-      _scaffoldKey.currentState!.openDrawer();
+      _abcKey.currentState!.openDrawer();
     }
   }
 
