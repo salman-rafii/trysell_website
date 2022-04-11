@@ -4,6 +4,8 @@ import 'package:trysell_website/controllers/blog_menu_controller.dart';
 import 'package:trysell_website/controllers/menu_controller.dart';
 import 'package:trysell_website/responsive.dart';
 import 'package:trysell_website/screens/main/components/blog_web_menu.dart';
+import 'package:trysell_website/widgets/custom_text.dart';
+import 'package:trysell_website/widgets/size_config.dart';
 
 import '../../../constants.dart';
 import 'socal.dart';
@@ -19,6 +21,10 @@ class BlogHeader extends StatefulWidget {
 class _HeaderState extends State<BlogHeader> {
   final BlogMenuController _controller = Get.put(BlogMenuController());
   final MenuController _menucontroller = Get.put(MenuController());
+  bool onHomeHover = false;
+  bool onServicesHover = false;
+  bool onContactUsHover = false;
+  bool onBlogHover = false;
   @override
   void initState() {
     super.initState();
@@ -61,7 +67,132 @@ class _HeaderState extends State<BlogHeader> {
                         ),
 
                       const Spacer(),
-                      if (Responsive.isDesktop(context)) BlogWebMenu(),
+                      // if (Responsive.isDesktop(context))
+                      Row(
+                        children: [
+                          InkWell(
+                            key: UniqueKey(),
+                            onHover: (value) {
+                              setState(() {
+                                onHomeHover = value;
+                              });
+                            },
+                            onTap: () {
+                              Get.toNamed("/");
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: kDefaultPadding / 2),
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                      color: onHomeHover
+                                          ? kPrimaryColor
+                                          : Colors.transparent,
+                                      width: 3),
+                                ),
+                              ),
+                              child: const CustomText(
+                                text: "Home",
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: MySize.size30,
+                          ),
+                          InkWell(
+                            key: UniqueKey(),
+                            onHover: (value) {
+                              setState(() {
+                                onServicesHover = value;
+                              });
+                            },
+                            onTap: () {
+                              Get.toNamed("/");
+                              _menucontroller.setMenuIndex(1);
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: kDefaultPadding / 2),
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                      color: onServicesHover
+                                          ? kPrimaryColor
+                                          : Colors.transparent,
+                                      width: 3),
+                                ),
+                              ),
+                              child: const CustomText(
+                                text: "Services",
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: MySize.size30,
+                          ),
+                          InkWell(
+                            key: UniqueKey(),
+                            onHover: (value) {
+                              setState(() {
+                                onContactUsHover = value;
+                              });
+                            },
+                            onTap: () {
+                              Get.toNamed("/");
+                              _menucontroller.setMenuIndex(2);
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: kDefaultPadding / 2),
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                      color: onContactUsHover
+                                          ? kPrimaryColor
+                                          : Colors.transparent,
+                                      width: 3),
+                                ),
+                              ),
+                              child: const CustomText(
+                                text: "Contact Us",
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: MySize.size30,
+                          ),
+                          InkWell(
+                            key: UniqueKey(),
+                            onHover: (value) {
+                              setState(() {
+                                onBlogHover = value;
+                              });
+                            },
+                            onTap: () {
+                              Get.toNamed("/");
+                              _menucontroller.setMenuIndex(3);
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: kDefaultPadding / 2),
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                      color: onBlogHover
+                                          ? kPrimaryColor
+                                          : Colors.transparent,
+                                      width: 3),
+                                ),
+                              ),
+                              child: const CustomText(
+                                text: "Blog",
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      // BlogWebMenu(),
                       const Spacer(),
                       // Socal
                       const Socal(),
