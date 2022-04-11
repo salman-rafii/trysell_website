@@ -69,11 +69,11 @@ class _WebMenuItemState extends State<BlogWebMenuItem> {
         duration: kDefaultDuration,
         margin: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
         padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(color: _borderColor(), width: 3),
-          ),
-        ),
+        // decoration: BoxDecoration(
+        //   border: Border(
+        //     bottom: BorderSide(color: _borderColor(), width: 3),
+        //   ),
+        // ),
         child: CustomText(
           text: widget.text,
           color: kDarkBlackColor,
