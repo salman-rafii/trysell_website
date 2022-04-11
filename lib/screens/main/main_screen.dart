@@ -6,6 +6,7 @@ import 'package:trysell_website/screens/home/components/home_screen_view.dart';
 import 'package:trysell_website/screens/home/components/services_view.dart';
 import 'package:trysell_website/screens/home/blog_list_view.dart';
 import 'package:trysell_website/widgets/size_config.dart';
+import 'package:sticky_headers/sticky_headers.dart';
 
 import '../../constants.dart';
 import 'components/header.dart';
@@ -29,28 +30,25 @@ class _MainScreenState extends State<MainScreen> {
       key: _controller.scaffoldkey,
       drawer: SideMenu(),
       body: SingleChildScrollView(
+        padding: EdgeInsets.zero,
         child: Builder(builder: (context) {
-          return Column(
-            children: [
-              const Header(),
-              const SizedBox(
-                height: 30,
-              ),
-              GetX<MenuController>(
-                builder: (_) => _controller.selectedIndex == 0
-                    ? const HomeScreenView()
-                    : _controller.selectedIndex == 1
-                        ? const ServicesView()
-                        : _controller.selectedIndex == 2
-                            ? const ContactUs()
-                            : Container(
-                                padding: const EdgeInsets.all(kDefaultPadding),
-                                constraints:
-                                    const BoxConstraints(maxWidth: kMaxWidth),
-                                child: const SafeArea(child: BlogListView()),
-                              ),
-              ),
-            ],
+          return StickyHeader(
+            header: Container(padding: EdgeInsets.all(30),color:Colors.white,child: const Header()),
+            content: Column(
+              children: [
+
+
+                GetX<MenuController>(
+                  builder: (_) => _controller.selectedIndex == 0
+                      ? const HomeScreenView()
+                      : _controller.selectedIndex == 1
+                          ? const ServicesView()
+                          : _controller.selectedIndex == 2
+                              ? const ContactUs()
+                              : BlogListView(),
+                ),
+              ],
+            ),
           );
         }),
       ),
