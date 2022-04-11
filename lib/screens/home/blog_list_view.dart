@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:trysell_website/constants.dart';
@@ -22,8 +23,10 @@ class BlogListView extends StatefulWidget {
   @override
   State<BlogListView> createState() => _BlogListViewState();
 }
-
+var blogIndex = 0;
 class _BlogListViewState extends State<BlogListView> {
+
+  final  controller = CarouselController();
   var activeIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -40,6 +43,7 @@ class _BlogListViewState extends State<BlogListView> {
 
 // Big screens
   Widget _buildDesktop(BuildContext context) {
+
     return ResponsiveWrapper(
       maxWidth: kDesktopMaxWidth,
       minWidth: kDesktopMaxWidth,
@@ -49,6 +53,9 @@ class _BlogListViewState extends State<BlogListView> {
           Column(
             children: [
               CarouselSlider.builder(
+
+carouselController: controller,
+
                   itemCount: blogPosts.length,
                   itemBuilder: (BuildContext context, int itemIndex,
                           int pageViewIndex) =>
@@ -57,7 +64,12 @@ class _BlogListViewState extends State<BlogListView> {
                           margin: const EdgeInsets.symmetric(horizontal: 10),
                           child: buildImage(itemIndex, context)),
                   options: CarouselOptions(
-                      viewportFraction: 0.5,
+
+                    initialPage: 0,
+
+viewportFraction: 0.5,
+
+
                       onPageChanged: ((index, reason) {
                         setState(() {
                           activeIndex = index;
@@ -72,7 +84,15 @@ class _BlogListViewState extends State<BlogListView> {
               const SizedBox(
                 height: 20,
               ),
-              buildIndicator(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Positioned(height: 20,child: IconButton(icon: Icon(Icons.arrow_back_ios,),onPressed: previous)),
+                  buildIndicator(),
+                  Positioned(height: 20,child: IconButton(icon: Icon(Icons.arrow_forward_ios,),onPressed: next)),
+
+                ],
+              ),
             ],
           ),
           const SizedBox(
@@ -113,7 +133,13 @@ class _BlogListViewState extends State<BlogListView> {
   }
 
   Widget buildIndicator() => AnimatedSmoothIndicator(
-      activeIndex: activeIndex, count: blogPosts.length);
+      activeIndex: activeIndex, count: blogPosts.length,onDotClicked: (index){
+    void animateToSlide() => controller.animateToPage(index);
+    animateToSlide();
+    blogIndex=activeIndex;
+  });
+  void previous() => controller.previousPage();
+void next() => controller.nextPage();
 }
 
 // ignore: avoid_unnecessary_containers
@@ -122,10 +148,17 @@ Widget buildImage(int itemIndex, BuildContext context) => Container(
           borderRadius: BorderRadius.circular(20),
           child: Stack(
             children: <Widget>[
-              SizedBox(
-                  height: MediaQuery.of(context).size.height,
-                  child: HoverImage(
-                      image: blogPosts[itemIndex].image!, opacity: 0.2)),
+
+              InkWell(
+                onTap: () {
+
+                  Get.toNamed("/readblog", arguments: [blogPosts[itemIndex]]);
+                },
+                child: SizedBox(
+                    height: MediaQuery.of(context).size.height,
+                    child: HoverImage(image: blogPosts[itemIndex].image!, opacity: 0.2)),
+              ),
+
               Positioned(
                 bottom: 20.0,
                 right: 15.0,
