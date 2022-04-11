@@ -59,7 +59,7 @@ class _BlogPostCardState extends State<BlogPostCard> {
                     children: [
                       Row(
                         children: [
-                          Text(
+                          SelectableText(
                             widget.blog.category!.toUpperCase(),
                             style: const TextStyle(
                               color: kDarkBlackColor,

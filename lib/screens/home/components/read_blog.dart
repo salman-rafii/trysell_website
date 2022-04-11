@@ -11,6 +11,7 @@ import 'package:trysell_website/screens/home/components/search.dart';
 import 'package:trysell_website/screens/home/components/services_view.dart';
 import 'package:trysell_website/screens/main/components/blog_header.dart';
 import 'package:trysell_website/widgets/hover_image.dart';
+import 'package:sticky_headers/sticky_headers.dart';
 
 import '../../../constants.dart';
 
@@ -31,23 +32,26 @@ class _ReadBlogState extends State<ReadBlog> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const BlogHeader(),
-            GetX<BlogMenuController>(builder: (_) {
-              if (_controller.selectedIndex == 0) {
-                return blogDetailsView(context);
-              } else if (_controller.selectedIndex == 1) {
-                return const ServicesView();
-              } else if (_controller.selectedIndex == 2) {
-                return const ContactUs();
-              } else if (_controller.selectedIndex == 3) {
-                Get.back();
-              }
-              return Container();
-            }),
-            const Footer(),
-          ],
+        child: StickyHeader(
+          header: Container(padding: const EdgeInsets.only(bottom: 30),color:Colors.white,child: const BlogHeader()),
+          content: Column(
+            children: [
+
+              GetX<BlogMenuController>(builder: (_) {
+                if (_controller.selectedIndex == 0) {
+                  return blogDetailsView(context);
+                } else if (_controller.selectedIndex == 1) {
+                  return const ServicesView();
+                } else if (_controller.selectedIndex == 2) {
+                  return const ContactUs();
+                } else if (_controller.selectedIndex == 3) {
+                  Get.back();
+                }
+                return Container();
+              }),
+              const Footer(),
+            ],
+          ),
         ),
       ),
     );
@@ -72,8 +76,8 @@ class _ReadBlogState extends State<ReadBlog> {
               children: [
                 Row(
                   children: [
-                    Text(
-                      "Design".toUpperCase(),
+                    SelectableText(
+                      s.category.toUpperCase(),
                       style: const TextStyle(
                         color: kDarkBlackColor,
                         fontSize: 12,
@@ -81,8 +85,8 @@ class _ReadBlogState extends State<ReadBlog> {
                       ),
                     ),
                     const SizedBox(width: kDefaultPadding),
-                    Text(
-                      "",
+                    SelectableText(
+                      s.date,
                       style: Theme.of(context).textTheme.caption,
                     ),
                   ],
@@ -90,11 +94,11 @@ class _ReadBlogState extends State<ReadBlog> {
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: kDefaultPadding),
-                  child: Text(
+                  child: SelectableText(
                     s.title.toString(),
                     maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
+
+                    style: TextStyle(overflow: TextOverflow.ellipsis,
                       fontSize: Responsive.isDesktop(context) ? 32 : 24,
                       fontFamily: "Raleway",
                       color: kDarkBlackColor,
@@ -113,11 +117,10 @@ class _ReadBlogState extends State<ReadBlog> {
                     ),
                   ),
                 ),
-                Text(
+                SelectableText(
                   s.description.toString(),
                   maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(height: 1.5),
+                  style: const TextStyle(height: 1.5,overflow: TextOverflow.ellipsis,),
                 ),
                 const SizedBox(height: kDefaultPadding),
               ],
