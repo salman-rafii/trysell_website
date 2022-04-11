@@ -25,6 +25,7 @@ class ReadBlog extends StatefulWidget {
 
 class _ReadBlogState extends State<ReadBlog> {
   final BlogMenuController _controller = Get.put(BlogMenuController());
+
   final s = Get.arguments[0];
   @override
   Widget build(BuildContext context) {

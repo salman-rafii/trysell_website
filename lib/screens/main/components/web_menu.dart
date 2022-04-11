@@ -5,10 +5,15 @@ import 'package:trysell_website/widgets/custom_text.dart';
 
 import '../../../constants.dart';
 
-class WebMenu extends StatelessWidget {
-  final MenuController _controller = Get.put(MenuController());
-
+class WebMenu extends StatefulWidget {
   WebMenu({Key? key}) : super(key: key);
+
+  @override
+  State<WebMenu> createState() => _WebMenuState();
+}
+
+class _WebMenuState extends State<WebMenu> {
+  final MenuController _controller = Get.put(MenuController());
 
   @override
   Widget build(BuildContext context) {

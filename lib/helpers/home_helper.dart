@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:trysell_website/constants.dart';
+import 'package:trysell_website/controllers/menu_controller.dart';
 import 'package:trysell_website/widgets/custom_text.dart';
 
 Column homeBannerView() {
+  final MenuController _controller = Get.find();
+
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,7 +70,9 @@ Column homeBannerView() {
             horizontal: 28.0,
           ),
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              _controller.setMenuIndex(1);
+            },
             child: const CustomText(
               text: "GET STARTED",
               color: Colors.white,
