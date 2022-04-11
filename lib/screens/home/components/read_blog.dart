@@ -15,7 +15,6 @@ import 'package:trysell_website/widgets/hover_image.dart';
 import '../../../constants.dart';
 
 class ReadBlog extends StatefulWidget {
-
   const ReadBlog({
     Key? key,
   }) : super(key: key);
@@ -81,62 +80,26 @@ class _ReadBlogState extends State<ReadBlog> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              s.category!.toUpperCase(),
-                              style: const TextStyle(
-                                color: kDarkBlackColor,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(width: kDefaultPadding),
-                            Text(
-                              s.date!,
-                              style: Theme.of(context).textTheme.caption,
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: kDefaultPadding),
-                          child: Text(
-                            s.title.toString(),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontSize: Responsive.isDesktop(context) ? 32 : 24,
-                              fontFamily: "Raleway",
-                              color: kDarkBlackColor,
-                              height: 1.3,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                        AspectRatio(
-                          aspectRatio: 1.78,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: HoverImage(
-                              image: s.image,
-                              opacity: 0.0,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          s.description.toString(),
-                          maxLines: 4,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(height: 1.5),
-                        ),
-                        const SizedBox(height: kDefaultPadding),
-                      ],
-
+                    const SizedBox(width: kDefaultPadding),
+                    Text(
+                      "",
+                      style: Theme.of(context).textTheme.caption,
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: kDefaultPadding),
+                  child: Text(
+                    s.title.toString(),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: Responsive.isDesktop(context) ? 32 : 24,
+                      fontFamily: "Raleway",
+                      color: kDarkBlackColor,
+                      height: 1.3,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
