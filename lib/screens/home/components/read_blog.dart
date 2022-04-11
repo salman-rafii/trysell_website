@@ -13,6 +13,7 @@ import '../../../constants.dart';
 import '../../main/components/header.dart';
 
 class ReadBlog extends StatefulWidget {
+
   const ReadBlog({
     Key? key,
   }) : super(key: key);
@@ -49,7 +50,7 @@ class _ReadBlogState extends State<ReadBlog> {
                         Row(
                           children: [
                             Text(
-                              "Design".toUpperCase(),
+                              s.category!.toUpperCase(),
                               style: const TextStyle(
                                 color: kDarkBlackColor,
                                 fontSize: 12,
@@ -58,7 +59,7 @@ class _ReadBlogState extends State<ReadBlog> {
                             ),
                             const SizedBox(width: kDefaultPadding),
                             Text(
-                              "",
+                              s.date!,
                               style: Theme.of(context).textTheme.caption,
                             ),
                           ],

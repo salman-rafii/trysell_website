@@ -33,7 +33,7 @@ class _BlogListViewState extends State<BlogListView> {
         // SizedBox(
         //   height: MySize.size80,
         // ),
-        const Footer()
+        const Footer(),
       ],
     );
   }
@@ -85,7 +85,7 @@ class _BlogListViewState extends State<BlogListView> {
                 child: Column(
                   children: List.generate(
                     blogPosts.length,
-                    (index) => BlogPostCard(blog: blogPosts[index]),
+                    (index) => BlogPostCard(blog:blogPosts [index]),
                   ),
                 ),
               ),
