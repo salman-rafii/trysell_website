@@ -27,15 +27,16 @@ class _MainScreenState extends State<MainScreen> {
     MySize().init(context);
     return Scaffold(
       backgroundColor: Colors.white,
-      key: _controller.scaffoldkey,
+      key: _controller.scaffoldkey2,
       drawer: SideMenu(),
       body: SingleChildScrollView(
         padding: EdgeInsets.zero,
         child: Builder(builder: (context) {
           return StickyHeader(
-
-            header: Container(padding: EdgeInsets.only(bottom: 30),color:Colors.white,child: const Header()),
-
+            header: Container(
+                padding: const EdgeInsets.only(bottom: 30),
+                color: Colors.white,
+                child: const Header()),
             content: Column(
               children: [
                 GetX<MenuController>(
@@ -45,7 +46,7 @@ class _MainScreenState extends State<MainScreen> {
                           ? const ServicesView()
                           : _controller.selectedIndex == 2
                               ? const ContactUs()
-                              : BlogListView(),
+                              : const BlogListView(),
                 ),
               ],
             ),

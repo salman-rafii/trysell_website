@@ -13,7 +13,7 @@ class MenuController extends GetxController {
         "Blog",
       ];
 
-  GlobalKey<ScaffoldState> get scaffoldkey => _scaffoldKey;
+  GlobalKey<ScaffoldState> get scaffoldkey2 => _scaffoldKey;
 
   void openOrCloseDrawer() {
     if (_scaffoldKey.currentState!.isDrawerOpen) {

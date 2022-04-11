@@ -67,132 +67,132 @@ class _HeaderState extends State<BlogHeader> {
                         ),
 
                       const Spacer(),
-                      // if (Responsive.isDesktop(context))
-                      Row(
-                        children: [
-                          InkWell(
-                            // key: UniqueKey(),
-                            onHover: (value) {
-                              setState(() {
-                                onHomeHover = value;
-                              });
-                            },
-                            onTap: () {
-                              Get.toNamed("/");
-                              _menucontroller.setMenuIndex(0);
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: kDefaultPadding / 2),
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(
-                                      color: onHomeHover
-                                          ? kPrimaryColor
-                                          : Colors.transparent,
-                                      width: 3),
+                      if (Responsive.isDesktop(context))
+                        Row(
+                          children: [
+                            InkWell(
+                              // key: UniqueKey(),
+                              onHover: (value) {
+                                setState(() {
+                                  onHomeHover = value;
+                                });
+                              },
+                              onTap: () {
+                                Get.toNamed("/");
+                                _menucontroller.setMenuIndex(0);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: kDefaultPadding / 2),
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                        color: onHomeHover
+                                            ? kPrimaryColor
+                                            : Colors.transparent,
+                                        width: 3),
+                                  ),
+                                ),
+                                child: const CustomText(
+                                  text: "Home",
                                 ),
                               ),
-                              child: const CustomText(
-                                text: "Home",
-                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: MySize.size30,
-                          ),
-                          InkWell(
-                            // key: UniqueKey(),
-                            onHover: (value) {
-                              setState(() {
-                                onServicesHover = value;
-                              });
-                            },
-                            onTap: () {
-                              Get.toNamed("/");
-                              _menucontroller.setMenuIndex(1);
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: kDefaultPadding / 2),
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(
-                                      color: onServicesHover
-                                          ? kPrimaryColor
-                                          : Colors.transparent,
-                                      width: 3),
+                            SizedBox(
+                              width: MySize.size30,
+                            ),
+                            InkWell(
+                              // key: UniqueKey(),
+                              onHover: (value) {
+                                setState(() {
+                                  onServicesHover = value;
+                                });
+                              },
+                              onTap: () {
+                                Get.toNamed("/");
+                                _menucontroller.setMenuIndex(1);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: kDefaultPadding / 2),
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                        color: onServicesHover
+                                            ? kPrimaryColor
+                                            : Colors.transparent,
+                                        width: 3),
+                                  ),
+                                ),
+                                child: const CustomText(
+                                  text: "Services",
                                 ),
                               ),
-                              child: const CustomText(
-                                text: "Services",
-                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: MySize.size30,
-                          ),
-                          InkWell(
-                            // key: UniqueKey(),
-                            onHover: (value) {
-                              setState(() {
-                                onContactUsHover = value;
-                              });
-                            },
-                            onTap: () {
-                              Get.toNamed("/");
-                              _menucontroller.setMenuIndex(2);
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: kDefaultPadding / 2),
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(
-                                      color: onContactUsHover
-                                          ? kPrimaryColor
-                                          : Colors.transparent,
-                                      width: 3),
+                            SizedBox(
+                              width: MySize.size30,
+                            ),
+                            InkWell(
+                              // key: UniqueKey(),
+                              onHover: (value) {
+                                setState(() {
+                                  onContactUsHover = value;
+                                });
+                              },
+                              onTap: () {
+                                Get.toNamed("/");
+                                _menucontroller.setMenuIndex(2);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: kDefaultPadding / 2),
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                        color: onContactUsHover
+                                            ? kPrimaryColor
+                                            : Colors.transparent,
+                                        width: 3),
+                                  ),
+                                ),
+                                child: const CustomText(
+                                  text: "Contact Us",
                                 ),
                               ),
-                              child: const CustomText(
-                                text: "Contact Us",
-                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: MySize.size30,
-                          ),
-                          InkWell(
-                            // key: UniqueKey(),
-                            onHover: (value) {
-                              setState(() {
-                                onBlogHover = value;
-                              });
-                            },
-                            onTap: () {
-                              Get.toNamed("/");
-                              _menucontroller.setMenuIndex(3);
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: kDefaultPadding / 2),
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(
-                                      color: onBlogHover
-                                          ? kPrimaryColor
-                                          : Colors.transparent,
-                                      width: 3),
+                            SizedBox(
+                              width: MySize.size30,
+                            ),
+                            InkWell(
+                              // key: UniqueKey(),
+                              onHover: (value) {
+                                setState(() {
+                                  onBlogHover = value;
+                                });
+                              },
+                              onTap: () {
+                                Get.toNamed("/");
+                                _menucontroller.setMenuIndex(3);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: kDefaultPadding / 2),
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                        color: onBlogHover
+                                            ? kPrimaryColor
+                                            : Colors.transparent,
+                                        width: 3),
+                                  ),
+                                ),
+                                child: const CustomText(
+                                  text: "Blog",
                                 ),
                               ),
-                              child: const CustomText(
-                                text: "Blog",
-                              ),
                             ),
-                          ),
-                        ],
-                      ),
+                          ],
+                        ),
                       // BlogWebMenu(),
                       const Spacer(),
                       // Socal

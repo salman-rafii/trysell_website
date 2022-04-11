@@ -49,16 +49,15 @@ class _BlogListViewState extends State<BlogListView> {
           Column(
             children: [
               CarouselSlider.builder(
-
                   itemCount: blogPosts.length,
                   itemBuilder: (BuildContext context, int itemIndex,
                           int pageViewIndex) =>
                       Container(
                           padding: const EdgeInsets.all(5),
                           margin: const EdgeInsets.symmetric(horizontal: 10),
-                          child: buildImage(itemIndex)),
+                          child: buildImage(itemIndex, context)),
                   options: CarouselOptions(
-
+                      viewportFraction: 0.5,
                       onPageChanged: ((index, reason) {
                         setState(() {
                           activeIndex = index;
@@ -87,7 +86,7 @@ class _BlogListViewState extends State<BlogListView> {
                 child: Column(
                   children: List.generate(
                     blogPosts.length,
-                    (index) => BlogPostCard(blog:blogPosts [index]),
+                    (index) => BlogPostCard(blog: blogPosts[index]),
                   ),
                 ),
               ),
@@ -118,12 +117,15 @@ class _BlogListViewState extends State<BlogListView> {
 }
 
 // ignore: avoid_unnecessary_containers
-Widget buildImage(int itemIndex) => Container(
+Widget buildImage(int itemIndex, BuildContext context) => Container(
       child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Stack(
             children: <Widget>[
-              HoverImage(image: blogPosts[itemIndex].image!, opacity: 0.2),
+              SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  child: HoverImage(
+                      image: blogPosts[itemIndex].image!, opacity: 0.2)),
               Positioned(
                 bottom: 20.0,
                 right: 15.0,
