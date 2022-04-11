@@ -117,9 +117,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
               fontSize: 30.0,
               fontWeight: FontWeight.w600,
             ),
-            SizedBox(
-              width: MySize.size4,
-            ),
+            SizedBox(width: MySize.size4),
           ],
         ),
         middleDivider(),

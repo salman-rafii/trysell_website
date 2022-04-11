@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:trysell_website/controllers/blog_menu_controller.dart';
 import 'package:trysell_website/controllers/menu_controller.dart';
 import 'package:trysell_website/responsive.dart';
-import 'package:trysell_website/screens/main/components/blog_web_menu.dart';
+
 import 'package:trysell_website/widgets/custom_text.dart';
 import 'package:trysell_website/widgets/size_config.dart';
 
@@ -79,6 +79,7 @@ class _HeaderState extends State<BlogHeader> {
                             },
                             onTap: () {
                               Get.toNamed("/");
+                              _menucontroller.setMenuIndex(0);
                             },
                             child: Container(
                               padding: const EdgeInsets.symmetric(

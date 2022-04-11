@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:trysell_website/controllers/menu_controller.dart';
 import 'package:trysell_website/widgets/custom_text.dart';
 
 import '../../../constants.dart';
@@ -19,6 +20,7 @@ class _SocalState extends State<Socal> {
   bool _isHover = false;
   @override
   Widget build(BuildContext context) {
+    final MenuController _controller = Get.find();
     return Row(
       children: [
         if (!Responsive.isMobile(context))
@@ -71,7 +73,9 @@ class _SocalState extends State<Socal> {
             ),
             const SizedBox(width: 10),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                _controller.setMenuIndex(2);
+              },
               style: OutlinedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8)),

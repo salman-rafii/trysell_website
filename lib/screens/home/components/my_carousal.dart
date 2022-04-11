@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:trysell_website/constants.dart';
+import 'package:trysell_website/controllers/menu_controller.dart';
 import 'package:trysell_website/widgets/custom_text.dart';
 import 'package:trysell_website/widgets/size_config.dart';
 
 Widget myCarousal({title, description, buttonText, image}) {
+  final MenuController _controller = Get.find();
   return Row(
     children: [
       Expanded(
@@ -66,7 +69,9 @@ Widget myCarousal({title, description, buttonText, image}) {
                   horizontal: 28.0,
                 ),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _controller.setMenuIndex(2);
+                  },
                   child: Text(
                     buttonText,
                     style: const TextStyle(
