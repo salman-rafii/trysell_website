@@ -10,6 +10,7 @@ import 'package:trysell_website/screens/home/components/footer.dart';
 import 'package:trysell_website/screens/home/components/search.dart';
 import 'package:trysell_website/screens/home/components/services_view.dart';
 import 'package:trysell_website/screens/main/components/blog_header.dart';
+import 'package:trysell_website/screens/main/components/blog_side_menu.dart';
 import 'package:trysell_website/widgets/hover_image.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 
@@ -31,13 +32,17 @@ class _ReadBlogState extends State<ReadBlog> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _controller.scaffoldkey,
+      drawer: const BlogSideMenu(),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: StickyHeader(
-          header: Container(padding: const EdgeInsets.only(bottom: 30),color:Colors.white,child: const BlogHeader()),
+          header: Container(
+              padding: const EdgeInsets.only(bottom: 30),
+              color: Colors.white,
+              child: const BlogHeader()),
           content: Column(
             children: [
-
               GetX<BlogMenuController>(builder: (_) {
                 if (_controller.selectedIndex == 0) {
                   return blogDetailsView(context);
@@ -77,12 +82,18 @@ class _ReadBlogState extends State<ReadBlog> {
               children: [
                 Row(
                   children: [
-                    SelectableText(
-                      s.category.toUpperCase(),
-                      style: const TextStyle(
-                        color: kDarkBlackColor,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
+                    Container(
+                      padding: const EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(5)),
+                      child: SelectableText(
+                        s.category.toUpperCase(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     const SizedBox(width: kDefaultPadding),
@@ -98,8 +109,8 @@ class _ReadBlogState extends State<ReadBlog> {
                   child: SelectableText(
                     s.title.toString(),
                     maxLines: 2,
-
-                    style: TextStyle(overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      overflow: TextOverflow.ellipsis,
                       fontSize: Responsive.isDesktop(context) ? 32 : 24,
                       fontFamily: "Raleway",
                       color: kDarkBlackColor,
@@ -121,7 +132,10 @@ class _ReadBlogState extends State<ReadBlog> {
                 SelectableText(
                   s.description.toString(),
                   maxLines: 4,
-                  style: const TextStyle(height: 1.5,overflow: TextOverflow.ellipsis,),
+                  style: const TextStyle(
+                    height: 1.5,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
                 const SizedBox(height: kDefaultPadding),
               ],
