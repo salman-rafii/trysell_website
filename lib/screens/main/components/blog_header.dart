@@ -71,7 +71,7 @@ class _HeaderState extends State<BlogHeader> {
                       Row(
                         children: [
                           InkWell(
-                            key: UniqueKey(),
+                            // key: UniqueKey(),
                             onHover: (value) {
                               setState(() {
                                 onHomeHover = value;
@@ -101,7 +101,7 @@ class _HeaderState extends State<BlogHeader> {
                             width: MySize.size30,
                           ),
                           InkWell(
-                            key: UniqueKey(),
+                            // key: UniqueKey(),
                             onHover: (value) {
                               setState(() {
                                 onServicesHover = value;
@@ -132,7 +132,7 @@ class _HeaderState extends State<BlogHeader> {
                             width: MySize.size30,
                           ),
                           InkWell(
-                            key: UniqueKey(),
+                            // key: UniqueKey(),
                             onHover: (value) {
                               setState(() {
                                 onContactUsHover = value;
@@ -163,7 +163,7 @@ class _HeaderState extends State<BlogHeader> {
                             width: MySize.size30,
                           ),
                           InkWell(
-                            key: UniqueKey(),
+                            // key: UniqueKey(),
                             onHover: (value) {
                               setState(() {
                                 onBlogHover = value;
