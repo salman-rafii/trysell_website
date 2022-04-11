@@ -53,7 +53,9 @@ class _BlogListViewState extends State<BlogListView> {
           Column(
             children: [
               CarouselSlider.builder(
+
 carouselController: controller,
+
                   itemCount: blogPosts.length,
                   itemBuilder: (BuildContext context, int itemIndex,
                           int pageViewIndex) =>
@@ -62,9 +64,11 @@ carouselController: controller,
                           margin: const EdgeInsets.symmetric(horizontal: 10),
                           child: buildImage(itemIndex, context)),
                   options: CarouselOptions(
+
                     initialPage: 0,
 
 viewportFraction: 0.5,
+
 
                       onPageChanged: ((index, reason) {
                         setState(() {
@@ -102,7 +106,7 @@ viewportFraction: 0.5,
                 child: Column(
                   children: List.generate(
                     blogPosts.length,
-                    (index) => BlogPostCard(blog:blogPosts [index]),
+                    (index) => BlogPostCard(blog: blogPosts[index]),
                   ),
                 ),
               ),
@@ -144,6 +148,7 @@ Widget buildImage(int itemIndex, BuildContext context) => Container(
           borderRadius: BorderRadius.circular(20),
           child: Stack(
             children: <Widget>[
+
               InkWell(
                 onTap: () {
 
@@ -153,6 +158,7 @@ Widget buildImage(int itemIndex, BuildContext context) => Container(
                     height: MediaQuery.of(context).size.height,
                     child: HoverImage(image: blogPosts[itemIndex].image!, opacity: 0.2)),
               ),
+
               Positioned(
                 bottom: 20.0,
                 right: 15.0,
