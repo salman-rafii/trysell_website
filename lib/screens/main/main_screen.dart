@@ -33,10 +33,9 @@ class _MainScreenState extends State<MainScreen> {
         padding: EdgeInsets.zero,
         child: Builder(builder: (context) {
           return StickyHeader(
-            header: Container(
-                padding: EdgeInsets.all(30),
-                color: Colors.white,
-                child: const Header()),
+
+            header: Container(padding: EdgeInsets.only(bottom: 30),color:Colors.white,child: const Header()),
+
             content: Column(
               children: [
                 GetX<MenuController>(

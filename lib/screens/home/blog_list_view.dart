@@ -49,6 +49,7 @@ class _BlogListViewState extends State<BlogListView> {
           Column(
             children: [
               CarouselSlider.builder(
+
                   itemCount: blogPosts.length,
                   itemBuilder: (BuildContext context, int itemIndex,
                           int pageViewIndex) =>
@@ -57,6 +58,7 @@ class _BlogListViewState extends State<BlogListView> {
                           margin: const EdgeInsets.symmetric(horizontal: 10),
                           child: buildImage(itemIndex)),
                   options: CarouselOptions(
+
                       onPageChanged: ((index, reason) {
                         setState(() {
                           activeIndex = index;
