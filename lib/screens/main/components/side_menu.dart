@@ -6,10 +6,15 @@ import 'package:trysell_website/controllers/menu_controller.dart';
 
 import '../../../constants.dart';
 
-class SideMenu extends StatelessWidget {
-  final MenuController _controller = Get.put(MenuController());
-
+class SideMenu extends StatefulWidget {
   SideMenu({Key? key}) : super(key: key);
+
+  @override
+  State<SideMenu> createState() => _SideMenuState();
+}
+
+class _SideMenuState extends State<SideMenu> {
+  final MenuController _controller = Get.put(MenuController());
 
   @override
   Widget build(BuildContext context) {
