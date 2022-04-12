@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 import 'package:trysell_website/screens/main/main_screen.dart';
 import 'package:trysell_website/screens/routes/routes.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 import 'constants.dart';
 
 void main() {
-  runApp(const MyApp());
+  // WidgetsFlutterBinding.ensureInitialized();
+  // setPathUrlStrategy();
+  runApp(
+    RobotDetector(
+      debug: false,
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,6 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      navigatorObservers: [seoRouteObserver],
       debugShowCheckedModeBanner: false,
       title: 'Trysell',
       theme: ThemeData(
