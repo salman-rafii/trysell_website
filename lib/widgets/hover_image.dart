@@ -15,11 +15,15 @@ class _HoverImageState extends State<HoverImage>
   AnimationController? _controller;
   Animation? _animation;
   Animation? padding;
+  late Image blogImage;
 
   @override
   void initState() {
     super.initState();
-
+    blogImage = Image.asset(
+      widget.image!,
+      fit: BoxFit.cover,
+    );
     _controller = AnimationController(
       duration: const Duration(milliseconds: 275),
       vsync: this,
@@ -31,6 +35,12 @@ class _HoverImageState extends State<HoverImage>
     _controller!.addListener(() {
       setState(() {});
     });
+  }
+
+  @override
+  void didChangeDependencies() {
+    precacheImage(blogImage.image, context);
+    super.didChangeDependencies();
   }
 
   @override
@@ -65,10 +75,7 @@ class _HoverImageState extends State<HoverImage>
           child: ColorFiltered(
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.2), BlendMode.darken),
-            child: Image.asset(
-              widget.image!,
-              fit: BoxFit.cover,
-            ),
+            child: blogImage,
           ),
         ),
       ),

@@ -6,12 +6,36 @@ import 'package:trysell_website/helpers/home_helper.dart';
 
 import 'package:trysell_website/helpers/screen_helper.dart';
 
-class Carousel extends StatelessWidget {
-  final CarouselController carouselController = CarouselController();
+class Carousel extends StatefulWidget {
+  const Carousel({Key? key}) : super(key: key);
 
-  Carousel({Key? key}) : super(key: key);
+  @override
+  State<Carousel> createState() => _CarouselState();
+}
+
+class _CarouselState extends State<Carousel> {
+  final CarouselController carouselController = CarouselController();
+  late Image bannerImage;
+  @override
+  void initState() {
+    bannerImage = Image.asset(
+      "assets/images/home_banner.png",
+      fit: BoxFit.contain,
+      height: 450,
+      width: 450,
+    );
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    precacheImage(bannerImage.image, context);
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
+    // precacheImage(bannerImage, context);
     double carouselContainerHeight = MediaQuery.of(context).size.height *
         (ScreenHelper.isMobile(context) ? .7 : .85);
     return SizedBox(
@@ -43,33 +67,18 @@ class Carousel extends StatelessWidget {
                         desktop: _buildDesktop(
                           context,
                           homeBannerView(),
-                          Image.asset(
-                            "assets/images/home_banner.png",
-                            fit: BoxFit.contain,
-                            height: 450,
-                            width: 450,
-                          ),
+                          bannerImage,
+                          // Image.asset(
+                          //   bannerImage,
+                          //   fit: BoxFit.contain,
+                          //   height: 450,
+                          //   width: 450,
+                          // ),
                         ),
                         tablet: _buildTablet(
-                          context,
-                          homeBannerView(),
-                          Image.asset(
-                            "assets/images/home_banner.png",
-                            fit: BoxFit.contain,
-                            height: 450,
-                            width: 450,
-                          ),
-                        ),
+                            context, homeBannerView(), bannerImage),
                         mobile: _buildMobile(
-                          context,
-                          homeBannerView(),
-                          Image.asset(
-                            "assets/images/home_banner.png",
-                            fit: BoxFit.contain,
-                            height: 450,
-                            width: 450,
-                          ),
-                        ),
+                            context, homeBannerView(), bannerImage),
                       ),
                     );
                   },
