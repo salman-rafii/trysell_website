@@ -21,6 +21,21 @@ class HomeScreenView extends StatefulWidget {
 }
 
 class _HomeScreenViewState extends State<HomeScreenView> {
+  late ImageProvider bannerImage;
+  @override
+  void initState() {
+    bannerImage = const AssetImage(
+      'assets/images/software_developer.jpg',
+    );
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    precacheImage(bannerImage, context);
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -30,13 +45,13 @@ class _HomeScreenViewState extends State<HomeScreenView> {
             image: DecorationImage(
               colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(0.7), BlendMode.darken),
-              image: const AssetImage('assets/images/software_developer.jpg'),
+              image: bannerImage,
               fit: BoxFit.cover,
             ),
           ),
           width: MediaQuery.of(context).size.width,
           // height: MediaQuery.of(context).size.height,
-          child: Carousel(),
+          child: const Carousel(),
         ),
         SizedBox(
           height: MySize.size80,
