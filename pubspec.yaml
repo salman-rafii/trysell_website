@@ -43,6 +43,8 @@ dependencies:
   smooth_scroll_web: ^0.0.4
   smooth_page_indicator: ^1.0.0+2
   sticky_headers: ^0.2.0
+  seo_renderer: ^0.6.0
+  url_strategy: ^0.2.0
 
 dev_dependencies:
   flutter_test:
