@@ -10,7 +10,7 @@ import 'constants.dart';
 void main() {
   // WidgetsFlutterBinding.ensureInitialized();
   // setPathUrlStrategy();
-  // change
+
   runApp(
     RobotDetector(
       debug: false,
